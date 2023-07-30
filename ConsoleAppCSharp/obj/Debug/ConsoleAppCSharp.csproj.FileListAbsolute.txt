@@ -1,0 +1,8 @@
+C:\Users\Admin\source\repos\T3H_BE3007\ConsoleAppCSharp\bin\Debug\ConsoleAppCSharp.exe.config
+C:\Users\Admin\source\repos\T3H_BE3007\ConsoleAppCSharp\bin\Debug\ConsoleAppCSharp.exe
+C:\Users\Admin\source\repos\T3H_BE3007\ConsoleAppCSharp\bin\Debug\ConsoleAppCSharp.pdb
+C:\Users\Admin\source\repos\T3H_BE3007\ConsoleAppCSharp\obj\Debug\ConsoleAppCSharp.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\T3H_BE3007\ConsoleAppCSharp\obj\Debug\ConsoleAppCSharp.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\source\repos\T3H_BE3007\ConsoleAppCSharp\obj\Debug\ConsoleAppCSharp.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\T3H_BE3007\ConsoleAppCSharp\obj\Debug\ConsoleAppCSharp.exe
+C:\Users\Admin\source\repos\T3H_BE3007\ConsoleAppCSharp\obj\Debug\ConsoleAppCSharp.pdb
