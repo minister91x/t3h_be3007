@@ -29,7 +29,6 @@ namespace ConsoleAppCSharp
                 Console.WriteLine("myNumber Khong bang variableName");
             }
 
-
             var variableName_2 = 10f;
 
             var variableName_3 = "day la so 10";
