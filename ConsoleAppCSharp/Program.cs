@@ -8,7 +8,73 @@ namespace ConsoleAppCSharp
 {
     internal class Program
     {
-        public static int a = 0;
+        public int a = 0;
+
+        public static int CongHaiSo(int a, int b)
+        {
+            return a + b;
+        }
+        public static int CongBaSo(int a, int b, int c)
+        {
+            return a + b + c;
+        }
+
+        public static void ThamTri(int x)
+        {
+            x = x * x;
+            Console.WriteLine(x);
+        }
+        public static void ThamChieu(ref int x)
+        {
+            x = x * x;
+            Console.WriteLine(x);
+        }
+        public static void OutExample(out int x)
+        {
+            x = 100;
+        }
+
+
+        public static void AddItem()
+        {
+            var a = Console.ReadLine();
+        }
+
+        public static void ShowItem()
+        {
+
+        }
+        //public static int ChiaHaiSo(int a, int b)
+        //{
+        //    try
+        //    {
+        //        throw new MyException("day là myexception"); 
+        //       // return a / b;
+        //    }
+        //    catch (DivideByZeroException ex)
+        //    {
+        //        Console.WriteLine("Lỗi chia cho không");
+        //        Console.WriteLine("DivideByZeroException {0}:", ex.Message);
+        //    }
+        //    catch (MyCustomException ex)
+        //    {
+        //        Console.WriteLine("Lỗi chia cho không");
+        //        Console.WriteLine("OutOfMemoryException {0}:", ex.StackTrace);
+        //    }
+        //    catch (MyException ex)
+        //    {
+        //        Console.WriteLine("Message: {0}:", ex.Message);
+        //        Console.WriteLine("StackTrace: {0}", ex.StackTrace);
+        //        Console.WriteLine("Source: {0}", ex.Source);
+        //    }
+        //    finally
+        //    {
+        //        Console.WriteLine("finally");
+        //    }
+
+        //    return 0;
+
+        //}
 
         public static int Sum(int a)
         {
@@ -36,6 +102,31 @@ namespace ConsoleAppCSharp
 
         static void Main(string[] args)
         {
+            var isCancel = true;
+            var choose = Convert.ToInt32(Console.ReadLine());   
+            while (!isCancel)
+            {
+                switch (choose)
+                {
+                    case 1: AddItem(); break;
+                    case 2: ShowItem(); break;
+                    case 4: isCancel = false; break;
+                }
+            }
+            //int a = 10;
+            //ThamTri(a);
+            //Console.WriteLine("ThamTri của a {0}", a);
+
+            //ThamChieu(ref a);
+            //Console.WriteLine("ThamChieu của a {0}", a);
+
+            //int a_out;
+            //OutExample(out a_out);
+            //Console.WriteLine("OutExample của a {0}", a_out);
+
+           /// ChiaHaiSo(10, 0);
+
+            Console.ReadKey();
 
             //string myName = Convert.ToString(10);
             //string myName1 = "10";
@@ -94,32 +185,32 @@ namespace ConsoleAppCSharp
             //    Console.WriteLine("CHIA BUON BẠN DA ROT:");
             //}
 
-            var myNumber1 = 0;
-            var myNumber2 = 0;
-            int sum = 0;
-            Console.WriteLine("Nhap số thứ 1 :");
-            myNumber1 = Convert.ToInt32(Console.ReadLine());
+            //var myNumber1 = 0;
+            //var myNumber2 = 0;
+            //int sum = 0;
+            //Console.WriteLine("Nhap số thứ 1 :");
+            //myNumber1 = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Nhap số thứ 2:");
-            myNumber2 = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("Nhap số thứ 2:");
+            //myNumber2 = Convert.ToInt32(Console.ReadLine());
 
 
-            if (myNumber1 <= 0 || myNumber2 <= 0)
-            {
-                Console.WriteLine("Nhap lại số thứ 1 :");
-                myNumber1 = Convert.ToInt32(Console.ReadLine());
+            //if (myNumber1 <= 0 || myNumber2 <= 0)
+            //{
+            //    Console.WriteLine("Nhap lại số thứ 1 :");
+            //    myNumber1 = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("Nhap lại số thứ 2:");
-                myNumber2 = Convert.ToInt32(Console.ReadLine());
+            //    Console.WriteLine("Nhap lại số thứ 2:");
+            //    myNumber2 = Convert.ToInt32(Console.ReadLine());
 
-                Swap(myNumber1, myNumber2);
+            //    Swap(myNumber1, myNumber2);
 
-            }
-            else
-            {
-                Swap(myNumber1, myNumber2);
+            //}
+            //else
+            //{
+            //    Swap(myNumber1, myNumber2);
 
-            }
+            //}
 
             //switch (myNumber1)
             //{
@@ -136,30 +227,28 @@ namespace ConsoleAppCSharp
             //    default: Console.WriteLine("case default:"); break;
             //}
 
-            int i, n;
-            Console.Write("\n");
-            Console.Write("Hien thi va tinh tong n so le trong C#:\n");
-            Console.Write("------------------------------------------");
-            Console.Write("\n\n");
+            //int i, n;
+            //Console.Write("\n");
+            //Console.Write("Hien thi va tinh tong n so le trong C#:\n");
+            //Console.Write("------------------------------------------");
+            //Console.Write("\n\n");
 
-            Console.Write("Nhap so cac so: ");
-            n = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\nHien thi cac so le: ");
-            for (i = 1; i <= n; i++)
-            {
-                Console.Write("{0} ", 2 * i - 1);
-                sum += 2 * i - 1;
-            }
-            Console.Write("\nTong {0} so le ban dau la: {1} \n", n, sum);
+            //Console.Write("Nhap so cac so: ");
+            //n = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("\nHien thi cac so le: ");
+            //for (i = 1; i <= n; i++)
+            //{
+            //    Console.Write("{0} ", 2 * i - 1);
+            //    sum += 2 * i - 1;
+            //}
+            //Console.Write("\nTong {0} so le ban dau la: {1} \n", n, sum);
 
-            Console.ReadKey();
+            //Console.ReadKey();
 
             Console.ReadLine();
 
             //Console.WriteLine("Number: {0}", myNumber);
         }
-
-
 
 
     }
