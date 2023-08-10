@@ -100,19 +100,144 @@ namespace ConsoleAppCSharp
             Console.WriteLine("Trước khi Swap a={0} ,b={1}:", a, b);
         }
 
+        struct Person
+        {
+            public int Id;
+            public string Name;
+
+            public Person(int id, string name)
+            {
+                this.Id = id;
+                this.Name = name;
+            }
+
+            public string Speak(string language)
+            {
+                return this.Name + " Nói ngôn ngữ :" + language;
+            }
+
+        }
+
+
+
+        public struct Product
+        {
+            public int _number { get; set; }
+            public int _price { get; set; }
+            public string _typename { get; set; }
+
+            public Product(int number, int price, string typename)
+            {
+                this._number = number;
+                this._price = price;
+                this._typename = typename;
+            }
+
+            public string Run(int number, string type)
+            {
+                if (number == 0 && type != "RON95")
+                {
+                    return "Stop";
+                }
+                _typename = type;
+
+                return "Running with :" + _typename;
+            }
+        }
+
+
+        enum Hocluc
+        {
+            GIOI = 1,
+            KHA = 2,
+            TRUNGBINH = 3,
+            KEM = 4
+        };
+
+        enum TrangThai
+        {
+            DA_DAT_HANG = 1,
+            DA_THANH_TOAN = 2,
+            DANG_VAN_CHUYEN = 3,
+            DA_GIAO = 4
+        };
+
+        enum HeSoLuong
+        {
+            HeSo1= 2,
+            Heso2= 3,
+            Heso3 = 4,
+        }
         static void Main(string[] args)
         {
-            var isCancel = true;
-            var choose = Convert.ToInt32(Console.ReadLine());   
-            while (!isCancel)
+
+            var person = new Person();
+
+            person.Id = 1;
+            person.Name = "Mr Quân";
+            person.Speak("VietNamese");
+
+            Console.WriteLine(" personSpeak {0}", person.Speak("VietNamese"));
+
+            var status = 1;
+            var statusName = "";
+            if (status == 1)
             {
-                switch (choose)
-                {
-                    case 1: AddItem(); break;
-                    case 2: ShowItem(); break;
-                    case 4: isCancel = false; break;
-                }
+                ///
+                ///
+
             }
+
+            if (status == (int)HeSoLuong.HeSo1)
+            {
+                ///
+                ///
+
+            }
+
+            //string[] cars = { "Honda", "BMW", "Ford", "Mazda" };
+            //int[] numbers = { 1, 7, 3, 9, 6, 8 };
+
+            //cars[3] = "Mercedes G63";
+
+            ////  Console.WriteLine("cars1 {0}", cars1[0]);
+
+            //for (int i = 0; i < cars.Length; i++)
+            //{
+            //    Console.WriteLine("cars name index {0} = {1}", i, cars[i]);
+            //}
+
+            //Array.Sort(numbers);
+
+            //foreach (var item in numbers)
+            //{
+            //    Console.WriteLine("numbers {0}", item);
+            //}
+
+            //var structProd = new Product();
+            //var structProd_ = new Product(10, 1500, "RON95");
+
+            //structProd._number = 1000;
+            //structProd._price = 1500;
+            //structProd._typename = "RON95";
+
+            //var run = structProd.Run(structProd_._number, structProd_._typename);
+
+            //Console.WriteLine("Product _number {0}", structProd._number);
+            //Console.WriteLine("Product _price {0}", structProd._price);
+            //Console.WriteLine("ProductRun {0}", run);
+
+            //var isCancel = true;
+            //var choose = Convert.ToInt32( .ReadLine());
+            //while (!isCancel)
+            //{
+            //    switch (choose)
+            //    {
+            //        case 1: AddItem(); break;
+            //        case 2: ShowItem(); break;
+            //        case 4: isCancel = false; break;
+            //    }
+            //}
             //int a = 10;
             //ThamTri(a);
             //Console.WriteLine("ThamTri của a {0}", a);
@@ -124,7 +249,7 @@ namespace ConsoleAppCSharp
             //OutExample(out a_out);
             //Console.WriteLine("OutExample của a {0}", a_out);
 
-           /// ChiaHaiSo(10, 0);
+            /// ChiaHaiSo(10, 0);
 
             Console.ReadKey();
 
