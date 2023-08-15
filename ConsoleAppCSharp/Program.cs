@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -164,36 +165,64 @@ namespace ConsoleAppCSharp
 
         enum HeSoLuong
         {
-            HeSo1= 2,
-            Heso2= 3,
+            HeSo1 = 2,
+            Heso2 = 3,
             Heso3 = 4,
         }
+
+        struct NGAYTHANG
+        {
+            public int ngay { get; set; }
+            public int thang { get; set; }
+            public int nam { get; set; }
+        };
+        struct SV
+        {
+            public char masv { get; set; }
+            public char hodem { get; set; }
+            public char ten { get; set; }
+            public NGAYTHANG ngsinh { get; set; }
+            public char gioitinh { get; set; }
+            public char hokhau { get; set; }
+            public float diem { get; set; }
+        };
+
+
         static void Main(string[] args)
         {
+            //var sinhvien = new SV();
+            //var ngaythang = new NGAYTHANG();
 
-            var person = new Person();
+            //ngaythang.ngay = 10;
+            //ngaythang.nam = 2023;
+            //ngaythang.thang = 8;
 
-            person.Id = 1;
-            person.Name = "Mr Quân";
-            person.Speak("VietNamese");
+            //sinhvien.ngsinh = ngaythang;
 
-            Console.WriteLine(" personSpeak {0}", person.Speak("VietNamese"));
 
-            var status = 1;
-            var statusName = "";
-            if (status == 1)
-            {
-                ///
-                ///
+            //var person = new Person();
 
-            }
+            //person.Id = 1;
+            //person.Name = "Mr Quân";
+            //person.Speak("VietNamese");
 
-            if (status == (int)HeSoLuong.HeSo1)
-            {
-                ///
-                ///
+            //Console.WriteLine(" personSpeak {0}", person.Speak("VietNamese"));
 
-            }
+            //var status = 1;
+            //var statusName = "";
+            //if (status == 1)
+            //{
+            //    ///
+            //    ///
+
+            //}
+
+            //if (status == (int)HeSoLuong.HeSo1)
+            //{
+            //    ///
+            //    ///
+
+            //}
 
             //string[] cars = { "Honda", "BMW", "Ford", "Mazda" };
             //int[] numbers = { 1, 7, 3, 9, 6, 8 };
@@ -370,9 +399,119 @@ namespace ConsoleAppCSharp
 
             //Console.ReadKey();
 
-            Console.ReadLine();
+            var dateNow = DateTime.Now;
+            //var dateNowUTC = DateTime.UtcNow;
 
-            //Console.WriteLine("Number: {0}", myNumber);
+            //Console.WriteLine("dateNow: {0}", dateNow.ToString("dd/MM/yyyy HH:mm:ss"));
+
+            //Console.WriteLine("dateNowUTC: {0}", dateNowUTC.ToString("dd/MM/yyyy HH:mm:ss"));
+
+            //var newDate = dateNow.AddDays(-1).ToString("dd/MM/yyyy HH:mm:ss");
+            //Console.WriteLine("newDate: {0}", newDate);
+
+            var timeSpan = new TimeSpan(-2, 0, 0);
+
+            var newDatetimeSpan = DateTime.Now.Add(timeSpan);
+
+            //Console.WriteLine("newDatetimeSpan: {0}", newDatetimeSpan);
+
+            //var firstDate = new DateTime(dateNow.Year, dateNow.Month, 1);
+            //Console.WriteLine("firstDate: {0}", firstDate);
+
+            //var lastDayOfMonth = DateTime.DaysInMonth(dateNow.Year, 2);
+            //Console.WriteLine("lastDayOfMonth: {0}", lastDayOfMonth);
+
+            //// Thời điểm hiện tại.
+            //DateTime aDateTime = DateTime.Now;
+
+            //// Thời điểm năm 2000
+            //DateTime y2K = new DateTime(2000, 1, 1);
+
+            //// Khoảng thời gian từ năm 2000 tới nay.
+            //TimeSpan interval = aDateTime.Subtract(y2K);
+
+            //Console.WriteLine("Interval from Y2K to Now: " + interval);
+
+            //Console.WriteLine("Days: " + interval.Days);
+            //Console.WriteLine("Hours: " + interval.Hours);
+            //Console.WriteLine("Minutes: " + interval.Minutes);
+            //Console.WriteLine("Seconds: " + interval.Seconds);
+
+            //var compare = DateTime.Compare(new DateTime(2023, 08, 15), new DateTime(2023, 8, 14));
+            //Console.WriteLine("compare {0}: " + compare);
+
+
+            //DateTime aDateTime1 = new DateTime(2022, 8, 22, 19, 30, 00);
+            //// Các định dạng date-time được hỗ trợ.
+            //string[] formattedStrings = aDateTime1.GetDateTimeFormats();
+
+            //foreach (string format in formattedStrings)
+            //{
+            //    Console.WriteLine(format);
+            //}
+
+            var datetime_text = "15/05/2023";
+
+            //DateTime dateValue;
+            //if (!DateTime.TryParseExact(datetime_text, "dd/MM/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out dateValue))
+            //{
+            //    Console.WriteLine("datetime_text {0}: không phải định dạng ngày tháng", datetime_text);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("datetime_text {0}: là định dạng ngày tháng", datetime_text);
+            //}
+
+            //var date = Convert.ToDateTime(datetime_text);
+            //Console.WriteLine("date {0}: " + date.ToString("dd/MM/yyyy HH:mm:ss"));
+
+            //var dateNew = DateTime.ParseExact(datetime_text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+            //Console.WriteLine("dateNew {0}: " + dateNew.ToString("dd/MM/yyyy HH:mm:ss"));
+
+           
+
+            //Console.WriteLine("chuoi {0}: " + chuoi.Length);
+            //var chuoi2 = chuoi.Concat("Thay Quan").ToString();
+
+            //var chuoiReplace = chuoi.Replace("aspnet", "aspnet fullstack");
+            //Console.WriteLine("chuoi chuoi {0}: " + chuoi);
+            //Console.WriteLine("chuoi chuoiReplace {0}: " + chuoiReplace);
+            
+            var chuoi = "day la khoa hoc aspnet net core";
+            Console.WriteLine("chuoi {0}: " + chuoi);
+            var lstStr = chuoi.Split(' ');
+
+            Console.WriteLine("{0}: ", lstStr);
+            foreach (var item in lstStr)
+            {
+                Console.WriteLine(char.ToUpper(item[0]) + item.Substring(1, item.Length - 1));
+            }
+
+           
+
+            //var subStr = chuoi.Substring(0, chuoi.Length - 1);
+            //Console.WriteLine("{0}: ", subStr);
+
+
+            //var strUpper = chuoi.ToUpper();
+            //Console.WriteLine("{0}: ", strUpper);
+
+
+            //string Value = "MyName";
+            //Value = Value + "Is Quan";
+
+            //Console.WriteLine("Value: {0}", Value);
+
+            //StringBuilder MutableValue = new StringBuilder("MyName");
+            //MutableValue.Append("Is Quan");
+
+            //Console.WriteLine("MutableValue : {0}", MutableValue);
+
+            //MutableValue.Insert(0, "ASPNET123_");
+            //Console.WriteLine("MutableValue Insert: {0}", MutableValue);
+
+            Console.ReadLine();
         }
 
 
