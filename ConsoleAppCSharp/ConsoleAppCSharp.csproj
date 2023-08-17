@@ -43,7 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="CustomEx.cs" />
+    <Compile Include="DemoGeneric.cs" />
+    <Compile Include="Employeer.cs" />
+    <Compile Include="EmployeerManager.cs" />
     <Compile Include="MyCustomException.cs" />
     <Compile Include="MyException.cs" />
     <Compile Include="Program.cs" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -243,58 +244,121 @@ namespace ConsoleAppCSharp
         }
 
 
+        static void HoanVi<T>(T a, T b)
+        {
+            T tmp = a;
+            a = b;
+            b = tmp;
+        }
+
+
+        //static T CongHaiSo<T>(T a, T b)
+        //{
+        //    return a + b
+        //}
+
+
         static void Main(string[] args)
         {
-            string str = "abcdaefd";
+            var empl = new Employeer();
+            empl.Name = Console.ReadLine();
 
-            Product product = new Product();
-            Console.WriteLine("Mời nhập tên sản phẩm");
+            var emplManager = new EmployeerManager();
 
-            product.ProductName = Console.ReadLine();
+            emplManager.employeers = new List<Employeer>();
 
-            Console.WriteLine("Mời nhập giá sản phẩm");
+            emplManager.Employeer_Add(empl);
 
-            product.ProductPrice = Convert.ToInt32(Console.ReadLine());
+            //string a = "a";
+            //int a1 = 10;
 
-            Console.WriteLine("Mời nhập ngày hết hạn (dd/mm/yyyy)");
+            //var generic = new DemoGeneric<double>(10);
+            //generic.genericProperty = 100;
 
-            var datetime_text = Console.ReadLine();
+            //generic.genericMethod(10);
 
-            // kiểm tra xem người dùng có nhập đúng định dạng không ?
-            DateTime dateValue;
-            if (!DateTime.TryParseExact(datetime_text, "dd/MM/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out dateValue))
+
+
+            //var generic_str = new DemoGeneric<string>("ABC");
+
+            //generic_str.genericProperty = "Generic";
+            //generic_str.genericMethod("demo 123");
+
+
+
+            HoanVi<int>(10, 12);
+
+
+            HoanVi<long>(10, 12);
+
+            HoanVi<float>(10.5f, 12.5f);
+
+            ArrayList arrList = new ArrayList() { 1, "5", 2.5, true };
+
+            arrList.Add("bac");
+
+            foreach (var item in arrList)
             {
-                Console.WriteLine("Ngày hết hạn {0}: không phải định dạng ngày tháng", datetime_text);
-                return;
+                Console.WriteLine("item {0}", item);
             }
 
-            // kiểm tra xem ngày hết hạn có hợp lệ không
-            var checkValid = CheckValidExpiredDate(dateValue);
-            //if (!checkValid)
-            //    if (checkValid)
+
+            var lsst = new List<int>();
+            lsst.Add(1);
+
+            var lsstObject = new List<Class1>();
+            lsstObject.Add(new Class1 { ID = 1 });
+
+            //string str = "abcdaefd";
+
+            //Product product = new Product();
+            //Console.WriteLine("Mời nhập tên sản phẩm");
+
+            //product.ProductName = Console.ReadLine();
+
+            //Console.WriteLine("Mời nhập giá sản phẩm");
+
+            //product.ProductPrice = Convert.ToInt32(Console.ReadLine());
+
+            //Console.WriteLine("Mời nhập ngày hết hạn (dd/mm/yyyy)");
+
+            //var datetime_text = Console.ReadLine();
+
+            //// kiểm tra xem người dùng có nhập đúng định dạng không ?
+            //DateTime dateValue;
+            //if (!DateTime.TryParseExact(datetime_text, "dd/MM/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out dateValue))
+            //{
+            //    Console.WriteLine("Ngày hết hạn {0}: không phải định dạng ngày tháng", datetime_text);
+            //    return;
+            //}
+
+            //// kiểm tra xem ngày hết hạn có hợp lệ không
+            //var checkValid = CheckValidExpiredDate(dateValue);
+            ////if (!checkValid)
+            ////    if (checkValid)
 
 
-            if (checkValid == false)
-            {
-                Console.WriteLine("Ngày hết hạn {0}: không phải định dạng ngày tháng", datetime_text);
-                return;
-            }
+            //if (checkValid == false)
+            //{
+            //    Console.WriteLine("Ngày hết hạn {0}: không phải định dạng ngày tháng", datetime_text);
+            //    return;
+            //}
 
-            product.ExpiredDate = dateValue;
+            //product.ExpiredDate = dateValue;
 
-            // kIỂM TRA XEM NGÀY HẾT HẠN ĐÚNG VỚI ĐỀ BÀI KHÔNG
-            var check30days = ExpiredDate30Day(product.ExpiredDate);
+            //// kIỂM TRA XEM NGÀY HẾT HẠN ĐÚNG VỚI ĐỀ BÀI KHÔNG
+            //var check30days = ExpiredDate30Day(product.ExpiredDate);
 
-            if (check30days == true)
-            {
-                Console.WriteLine("Tên sản phẩm {0}", product.ProductName);
-                Console.WriteLine("giá sản phẩm {0}", product.ProductPrice);
-                Console.WriteLine("ngày hết hạn sản phẩm {0}", product.ExpiredDate.ToString("dd/MM/yyyy"));
-            }
-            else
-            {
-                Console.WriteLine("Sản phẩm không hợp lệ với đề bài");
-            }
+            //if (check30days == true)
+            //{
+            //    Console.WriteLine("Tên sản phẩm {0}", product.ProductName);
+            //    Console.WriteLine("giá sản phẩm {0}", product.ProductPrice);
+            //    Console.WriteLine("ngày hết hạn sản phẩm {0}", product.ExpiredDate.ToString("dd/MM/yyyy"));
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Sản phẩm không hợp lệ với đề bài");
+            //}
 
             //var sinhvien = new SV();
             //var ngaythang = new NGAYTHANG();
@@ -556,7 +620,7 @@ namespace ConsoleAppCSharp
             //    Console.WriteLine(format);
             //}
 
-           /// var datetime_text = "15/05/2023";
+            /// var datetime_text = "15/05/2023";
 
             //DateTime dateValue;
             //if (!DateTime.TryParseExact(datetime_text, "dd/MM/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out dateValue))
