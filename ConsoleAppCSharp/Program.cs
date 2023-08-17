@@ -121,30 +121,30 @@ namespace ConsoleAppCSharp
 
 
 
-        public struct Product
-        {
-            public int _number { get; set; }
-            public int _price { get; set; }
-            public string _typename { get; set; }
+        //public struct Product
+        //{
+        //    public int _number { get; set; }
+        //    public int _price { get; set; }
+        //    public string _typename { get; set; }
 
-            public Product(int number, int price, string typename)
-            {
-                this._number = number;
-                this._price = price;
-                this._typename = typename;
-            }
+        //    public Product(int number, int price, string typename)
+        //    {
+        //        this._number = number;
+        //        this._price = price;
+        //        this._typename = typename;
+        //    }
 
-            public string Run(int number, string type)
-            {
-                if (number == 0 && type != "RON95")
-                {
-                    return "Stop";
-                }
-                _typename = type;
+        //    public string Run(int number, string type)
+        //    {
+        //        if (number == 0 && type != "RON95")
+        //        {
+        //            return "Stop";
+        //        }
+        //        _typename = type;
 
-                return "Running with :" + _typename;
-            }
-        }
+        //        return "Running with :" + _typename;
+        //    }
+        //}
 
 
         enum Hocluc
@@ -188,8 +188,114 @@ namespace ConsoleAppCSharp
         };
 
 
+        struct Product
+        {
+            public string ProductName { get; set; }
+            public int ProductPrice { get; set; }
+            public DateTime ExpiredDate { get; set; }
+            // Ngày phải không được trống
+            // phải lớn hơn ngày hiện tại
+            // Không quá 6 tháng (180 ngày ) so với ngày hiện tại
+
+        }
+
+        public static bool CheckValidExpiredDate(DateTime expiredDate)
+        {
+            // Ngày phải không được trống
+            // phải lớn hơn ngày hiện tại
+            // Không quá 6 tháng (180 ngày ) so với ngày hiện tại
+            if (expiredDate == null)
+            {
+                return false;
+            }
+
+            if (expiredDate < DateTime.Now)
+            {
+                return false;
+            }
+
+            var days = (expiredDate - DateTime.Now).TotalDays;
+            if (days > 180)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+
+
+        public static bool ExpiredDate30Day(DateTime expiredDate)
+        {
+            if (expiredDate == null)
+            {
+                return false;
+            }
+
+            var days = (expiredDate - DateTime.Now).TotalDays;
+            if (days <= 30)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
         static void Main(string[] args)
         {
+            string str = "abcdaefd";
+
+            Product product = new Product();
+            Console.WriteLine("Mời nhập tên sản phẩm");
+
+            product.ProductName = Console.ReadLine();
+
+            Console.WriteLine("Mời nhập giá sản phẩm");
+
+            product.ProductPrice = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Mời nhập ngày hết hạn (dd/mm/yyyy)");
+
+            var datetime_text = Console.ReadLine();
+
+            // kiểm tra xem người dùng có nhập đúng định dạng không ?
+            DateTime dateValue;
+            if (!DateTime.TryParseExact(datetime_text, "dd/MM/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out dateValue))
+            {
+                Console.WriteLine("Ngày hết hạn {0}: không phải định dạng ngày tháng", datetime_text);
+                return;
+            }
+
+            // kiểm tra xem ngày hết hạn có hợp lệ không
+            var checkValid = CheckValidExpiredDate(dateValue);
+            //if (!checkValid)
+            //    if (checkValid)
+
+
+            if (checkValid == false)
+            {
+                Console.WriteLine("Ngày hết hạn {0}: không phải định dạng ngày tháng", datetime_text);
+                return;
+            }
+
+            product.ExpiredDate = dateValue;
+
+            // kIỂM TRA XEM NGÀY HẾT HẠN ĐÚNG VỚI ĐỀ BÀI KHÔNG
+            var check30days = ExpiredDate30Day(product.ExpiredDate);
+
+            if (check30days == true)
+            {
+                Console.WriteLine("Tên sản phẩm {0}", product.ProductName);
+                Console.WriteLine("giá sản phẩm {0}", product.ProductPrice);
+                Console.WriteLine("ngày hết hạn sản phẩm {0}", product.ExpiredDate.ToString("dd/MM/yyyy"));
+            }
+            else
+            {
+                Console.WriteLine("Sản phẩm không hợp lệ với đề bài");
+            }
+
             //var sinhvien = new SV();
             //var ngaythang = new NGAYTHANG();
 
@@ -400,7 +506,7 @@ namespace ConsoleAppCSharp
             //Console.ReadKey();
 
             var dateNow = DateTime.Now;
-            //var dateNowUTC = DateTime.UtcNow;
+            var dateNowUTC = DateTime.UtcNow;
 
             //Console.WriteLine("dateNow: {0}", dateNow.ToString("dd/MM/yyyy HH:mm:ss"));
 
@@ -450,7 +556,7 @@ namespace ConsoleAppCSharp
             //    Console.WriteLine(format);
             //}
 
-            var datetime_text = "15/05/2023";
+           /// var datetime_text = "15/05/2023";
 
             //DateTime dateValue;
             //if (!DateTime.TryParseExact(datetime_text, "dd/MM/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out dateValue))
@@ -469,7 +575,7 @@ namespace ConsoleAppCSharp
 
             //Console.WriteLine("dateNew {0}: " + dateNew.ToString("dd/MM/yyyy HH:mm:ss"));
 
-           
+
 
             //Console.WriteLine("chuoi {0}: " + chuoi.Length);
             //var chuoi2 = chuoi.Concat("Thay Quan").ToString();
@@ -477,7 +583,7 @@ namespace ConsoleAppCSharp
             //var chuoiReplace = chuoi.Replace("aspnet", "aspnet fullstack");
             //Console.WriteLine("chuoi chuoi {0}: " + chuoi);
             //Console.WriteLine("chuoi chuoiReplace {0}: " + chuoiReplace);
-            
+
             var chuoi = "day la khoa hoc aspnet net core";
             Console.WriteLine("chuoi {0}: " + chuoi);
             var lstStr = chuoi.Split(' ');
@@ -488,7 +594,7 @@ namespace ConsoleAppCSharp
                 Console.WriteLine(char.ToUpper(item[0]) + item.Substring(1, item.Length - 1));
             }
 
-           
+
 
             //var subStr = chuoi.Substring(0, chuoi.Length - 1);
             //Console.WriteLine("{0}: ", subStr);
