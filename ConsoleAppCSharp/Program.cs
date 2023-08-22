@@ -102,23 +102,23 @@ namespace ConsoleAppCSharp
             Console.WriteLine("Trước khi Swap a={0} ,b={1}:", a, b);
         }
 
-        struct Person
-        {
-            public int Id;
-            public string Name;
+        //struct Person
+        //{
+        //    public int Id;
+        //    public string Name;
 
-            public Person(int id, string name)
-            {
-                this.Id = id;
-                this.Name = name;
-            }
+        //    public Person(int id, string name)
+        //    {
+        //        this.Id = id;
+        //        this.Name = name;
+        //    }
 
-            public string Speak(string language)
-            {
-                return this.Name + " Nói ngôn ngữ :" + language;
-            }
+        //    public string Speak(string language)
+        //    {
+        //        return this.Name + " Nói ngôn ngữ :" + language;
+        //    }
 
-        }
+        //}
 
 
 
@@ -260,14 +260,19 @@ namespace ConsoleAppCSharp
 
         static void Main(string[] args)
         {
-            var empl = new Employeer();
-            empl.Name = Console.ReadLine();
+            var person = new Person();
 
-            var emplManager = new EmployeerManager();
+            var candidate = new Candidate();
+            candidate.Name = "bacn";
+            candidate.Id = 10;
+            //var quanlyNhanVien = new QuanlyNhanVien();
 
-            emplManager.employeers = new List<Employeer>();
+            //var nhanvien = new NhanVien();
+            //nhanvien.ID = 1;
+            //nhanvien.Name = "MrQuan";
 
-            emplManager.Employeer_Add(empl);
+            //quanlyNhanVien.Them(nhanvien);
+            //quanlyNhanVien.HienThi();
 
             //string a = "a";
             //int a1 = 10;
@@ -286,28 +291,28 @@ namespace ConsoleAppCSharp
 
 
 
-            HoanVi<int>(10, 12);
+            //HoanVi<int>(10, 12);
 
 
-            HoanVi<long>(10, 12);
+            //HoanVi<long>(10, 12);
 
-            HoanVi<float>(10.5f, 12.5f);
+            //HoanVi<float>(10.5f, 12.5f);
 
-            ArrayList arrList = new ArrayList() { 1, "5", 2.5, true };
+            //ArrayList arrList = new ArrayList() { 1, "5", 2.5, true };
 
-            arrList.Add("bac");
+            //arrList.Add("bac");
 
-            foreach (var item in arrList)
-            {
-                Console.WriteLine("item {0}", item);
-            }
+            //foreach (var item in arrList)
+            //{
+            //    Console.WriteLine("item {0}", item);
+            //}
 
 
-            var lsst = new List<int>();
-            lsst.Add(1);
+            //var lsst = new List<int>();
+            //lsst.Add(1);
 
-            var lsstObject = new List<Class1>();
-            lsstObject.Add(new Class1 { ID = 1 });
+            //var lsstObject = new List<Class1>();
+            //lsstObject.Add(new Class1 { ID = 1 });
 
             //string str = "abcdaefd";
 
