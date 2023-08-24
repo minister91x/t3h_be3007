@@ -189,16 +189,16 @@ namespace ConsoleAppCSharp
         };
 
 
-        struct Product
-        {
-            public string ProductName { get; set; }
-            public int ProductPrice { get; set; }
-            public DateTime ExpiredDate { get; set; }
-            // Ngày phải không được trống
-            // phải lớn hơn ngày hiện tại
-            // Không quá 6 tháng (180 ngày ) so với ngày hiện tại
+        //struct Product
+        //{
+        //    public string ProductName { get; set; }
+        //    public int ProductPrice { get; set; }
+        //    public DateTime ExpiredDate { get; set; }
+        //    // Ngày phải không được trống
+        //    // phải lớn hơn ngày hiện tại
+        //    // Không quá 6 tháng (180 ngày ) so với ngày hiện tại
 
-        }
+        //}
 
         public static bool CheckValidExpiredDate(DateTime expiredDate)
         {
@@ -260,11 +260,88 @@ namespace ConsoleAppCSharp
 
         static void Main(string[] args)
         {
-            var person = new Person();
+            //var person = new Person();
 
-            var candidate = new Candidate();
-            candidate.Name = "bacn";
-            candidate.Id = 10;
+            //var person1 = (Candidate)person;
+            //var person2 = (CandidateJob)person;
+
+            //var candidate = new Candidate();
+
+            // var appexport = new ApplicationExport();
+            // appexport.Export();
+            // Console.WriteLine(" appexport.Export(): {0}", appexport.Export());
+
+
+            //var lstBill = new List<BillInfor>();// hóa đơn đơn
+            // lstBill.Add(new BillInfor { Price = 1});
+
+
+            var listProduct = new List<Product>();
+
+             listProduct.Add(new Product("bac", "test"));
+            /// 
+
+            //var p = new Product();
+            //p.Name = "SẢN PHẨM 1";
+
+
+            listProduct.Add(new Product {
+            
+            });
+
+
+            foreach (var item in listProduct)
+            {
+                Console.WriteLine("productName {0}", item.Name);
+            }
+
+            //var bill = new BillInfor();
+            //bill.ProductCode = "IPHONE-X";
+            //bill.Quantity = 3;
+            //bill.Price = 100000;
+            //bill.ProductName = "apple iphone X";
+            //bill.TotalAmount = bill.Quantity * bill.Price;
+
+            //lstBill.Add(bill);
+
+
+            //var bill2 = new BillInfor();
+            //bill2.ProductCode = "IPHONE-15";
+            //bill2.Quantity = 1;
+            //bill2.Price = 300000;
+            //bill2.ProductName = "apple iphone 15";
+            //bill2.TotalAmount = bill2.Quantity * bill2.Price;
+
+            //lstBill.Add(bill2);
+
+
+            //double totalPayment = 0;
+
+            //foreach (var item in lstBill)
+            //{
+            //    totalPayment += item.TotalAmount;
+            //}
+
+            //Console.WriteLine("totalPayment: {0}", totalPayment);
+
+            //if (totalPayment >= 500 && totalPayment < 1000000)
+            //{
+            //    totalPayment = totalPayment - (totalPayment * 0.1);
+
+            //    Console.WriteLine("totalPayment Sale 10% : {0}", totalPayment);
+            //}
+            //else
+            //{
+
+            //    if (totalPayment >= 1000000)
+            //    {
+            //        totalPayment = totalPayment - (totalPayment * 0.3);
+            //    }
+            //}
+
+            //Console.WriteLine("totalPayment Sale 30% : {0}", totalPayment);
+
+
             //var quanlyNhanVien = new QuanlyNhanVien();
 
             //var nhanvien = new NhanVien();

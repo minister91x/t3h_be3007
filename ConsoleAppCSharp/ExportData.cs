@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppCSharp
 {
-    internal class ExportData : IExportData
+    internal class ExportData 
     {
-        public void Export()
+        public string Export()
         {
-            throw new NotImplementedException();
+            return string.Empty;
         }
     }
 }

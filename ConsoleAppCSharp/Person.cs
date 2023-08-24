@@ -8,7 +8,14 @@ namespace ConsoleAppCSharp
 {
     public class Person
     {
-        private int Id { get; set; } 
-        public string Name { get; set; }    
+        public int Id { get; set; } 
+        public string Name { get; set; }
+        private string Passport { get; set; }
+
+        public Person()
+        {
+            Console.WriteLine("Person Init");
+        }
+
     }
 }

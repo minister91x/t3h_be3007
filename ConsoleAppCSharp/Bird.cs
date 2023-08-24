@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppCSharp
 {
-    public class Bird : Animal
-    {
-        public override void AnimalSound()
-        {
-            Console.WriteLine("chip chip");
-        }
+    //public class Bird : Animal
+    //{
+    //    public override void AnimalSound()
+    //    {
+    //        Console.WriteLine("chip chip");
+    //    }
 
-        public override void Eat()
-        {
-            Console.WriteLine("an sau");
-        }
-    }
+    //    public override void Eat()
+    //    {
+    //        Console.WriteLine("an sau");
+    //    }
+    //}
 }

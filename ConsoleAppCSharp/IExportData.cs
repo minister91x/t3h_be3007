@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppCSharp
 {
-    internal interface IExportData
+    public interface IExportData
     {
-        void Export();
-
+        string Export();
+        int ProductInsert();
+        int ProductUpdate();
     }
 }
