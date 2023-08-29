@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T3H_BE3007", "T3H_BE3007\T3H_BE3007.csproj", "{8ECABE2A-D640-4BC3-874F-CAB1CA437EEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "T3H_BE3007", "T3H_BE3007\T3H_BE3007.csproj", "{8ECABE2A-D640-4BC3-874F-CAB1CA437EEC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppCSharp", "ConsoleAppCSharp\ConsoleAppCSharp.csproj", "{F3964748-A75F-4166-AB7F-95062A21EAE9}"
 EndProject

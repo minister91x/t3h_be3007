@@ -200,6 +200,11 @@ namespace ConsoleAppCSharp
 
         //}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expiredDate">truyền vào ngày hết hạn</param>
+        /// <returns></returns>
         public static bool CheckValidExpiredDate(DateTime expiredDate)
         {
             // Ngày phải không được trống
@@ -223,11 +228,24 @@ namespace ConsoleAppCSharp
 
             return true;
         }
+        
+        public int ProductInsert(string name, int gia, string image, int kichthuoc, int soluong)
+        {
+            return 1;
+        }
 
+        public int Product_Insert(Product product)
+        {
+            return 1;
+        }
 
-
-
-        public static bool ExpiredDate30Day(DateTime expiredDate)
+        /// <summary>
+        /// Hàm này để tính ngày hết hạn
+        /// </summary>
+        /// <param name="expiredDate">Ngày hết hạn</param>
+        /// <param name="a">tham số gì đó chưa biết</param>
+        /// <returns></returns>
+        public static bool ExpiredDate30Day(DateTime expiredDate, string a)
         {
             if (expiredDate == null)
             {
@@ -278,16 +296,31 @@ namespace ConsoleAppCSharp
 
             var listProduct = new List<Product>();
 
-             listProduct.Add(new Product("bac", "test"));
-            /// 
+            listProduct.Add(new Product
+            {
+                Description = "a",
+                Name = ""
+            });
+
+
+            int a = 10;
+            string noti = string.Empty;
+            var noti1 = "";
+            if (a > 5)
+            {
+                noti = "ok";
+            }
+            else
+            {
+                noti = "not ok";
+            }
+
+            noti = a > 5 ? "ok" : "not ok";
 
             //var p = new Product();
             //p.Name = "SẢN PHẨM 1";
 
 
-            listProduct.Add(new Product {
-            
-            });
 
 
             foreach (var item in listProduct)
