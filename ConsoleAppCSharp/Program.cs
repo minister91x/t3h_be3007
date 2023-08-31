@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleAppCSharp.Database;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -278,6 +279,19 @@ namespace ConsoleAppCSharp
 
         static void Main(string[] args)
         {
+            
+            var listProduct = DbHelper.Product_GetList();
+
+            if(listProduct!=null && listProduct.Count > 0)
+            {
+                foreach (var item in listProduct)
+                {
+                    Console.WriteLine(" item id: {0}", item.ProductID);
+                    Console.WriteLine(" item ProductName: {0}", item.ProductName);
+                    Console.WriteLine(" item Price: {0}", item.Price);
+                }
+            }
+
             //var person = new Person();
 
             //var person1 = (Candidate)person;
@@ -294,28 +308,28 @@ namespace ConsoleAppCSharp
             // lstBill.Add(new BillInfor { Price = 1});
 
 
-            var listProduct = new List<Product>();
+            //var listProduct = new List<Product>();
 
-            listProduct.Add(new Product
-            {
-                Description = "a",
-                Name = ""
-            });
+            //listProduct.Add(new Product
+            //{
+            //    Description = "a",
+            //    Name = ""
+            //});
 
 
-            int a = 10;
-            string noti = string.Empty;
-            var noti1 = "";
-            if (a > 5)
-            {
-                noti = "ok";
-            }
-            else
-            {
-                noti = "not ok";
-            }
+            //int a = 10;
+            //string noti = string.Empty;
+            //var noti1 = "";
+            //if (a > 5)
+            //{
+            //    noti = "ok";
+            //}
+            //else
+            //{
+            //    noti = "not ok";
+            //}
 
-            noti = a > 5 ? "ok" : "not ok";
+            //noti = a > 5 ? "ok" : "not ok";
 
             //var p = new Product();
             //p.Name = "SẢN PHẨM 1";
@@ -323,10 +337,10 @@ namespace ConsoleAppCSharp
 
 
 
-            foreach (var item in listProduct)
-            {
-                Console.WriteLine("productName {0}", item.Name);
-            }
+            //foreach (var item in listProduct)
+            //{
+            //    Console.WriteLine("productName {0}", item.Name);
+            //}
 
             //var bill = new BillInfor();
             //bill.ProductCode = "IPHONE-X";

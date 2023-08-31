@@ -52,6 +52,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Cow.cs" />
     <Compile Include="CustomEx.cs" />
+    <Compile Include="Database\DbHelper.cs" />
     <Compile Include="DemoClass.cs" />
     <Compile Include="DemoGeneric.cs" />
     <Compile Include="Employeer.cs" />

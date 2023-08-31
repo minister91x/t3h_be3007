@@ -8,15 +8,9 @@ namespace ConsoleAppCSharp
 {
     public class Product
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public Product()
-        {
-        }
-        public Product(string name, string des)
-        {
-            Name = name;
-            Description = des;
-        }
+        public int ProductID { get; set; }
+        public string ProductName { get; set; }
+        public int Price { get; set; }
+        public int CatId { get; set; }
     }
 }
