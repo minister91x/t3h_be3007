@@ -229,7 +229,7 @@ namespace ConsoleAppCSharp
 
             return true;
         }
-        
+
         public int ProductInsert(string name, int gia, string image, int kichthuoc, int soluong)
         {
             return 1;
@@ -279,10 +279,24 @@ namespace ConsoleAppCSharp
 
         static void Main(string[] args)
         {
-            
-            var listProduct = DbHelper.Product_GetList();
+            var productManager = new ConsoleAppCSharp.ProductManager.ProductManager();
+            var productBase = new ConsoleAppCSharp.ProductManager.ProductDataBase();
 
-            if(listProduct!=null && listProduct.Count > 0)
+            productBase.ProductName = "Laptop DELL VOSTRO";
+            productBase.Price = 1900000;
+            productBase.CatId =3;
+
+            var result = productManager.ProductInsert(productBase);
+            
+            if (result <= 0)
+            {
+                Console.WriteLine("Thêm mới thất bại!");
+                return;
+
+            }
+
+            var listProduct = productManager.ProductsGetList(0);
+            if (listProduct != null && listProduct.Count > 0)
             {
                 foreach (var item in listProduct)
                 {
@@ -291,6 +305,7 @@ namespace ConsoleAppCSharp
                     Console.WriteLine(" item Price: {0}", item.Price);
                 }
             }
+
 
             //var person = new Person();
 
