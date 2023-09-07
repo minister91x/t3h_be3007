@@ -282,12 +282,13 @@ namespace ConsoleAppCSharp
             var productManager = new ConsoleAppCSharp.ProductManager.ProductManager();
             var productBase = new ConsoleAppCSharp.ProductManager.ProductDataBase();
 
-            productBase.ProductName = "Laptop DELL VOSTRO";
+            // productBase.ProductID = 6;
+            productBase.ProductName = "Laptop DELL VOSTRO_UPDATE";
             productBase.Price = 1900000;
-            productBase.CatId =3;
+            productBase.CatId = 3;
 
             var result = productManager.ProductInsert(productBase);
-            
+
             if (result <= 0)
             {
                 Console.WriteLine("Thêm mới thất bại!");

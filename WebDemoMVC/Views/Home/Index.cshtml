@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    var datetime = DateTime.Now.ToString("dd/MM/yyyy");
+
+}
+
+@model List<WebDemoMVC.Models.StudentModels>
+
+<div class="jumbotron">
+    <h1>ASP.NET BE 3007 THAY QUAN Ngay : @datetime</h1>
+</div>
+
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Lastname</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
