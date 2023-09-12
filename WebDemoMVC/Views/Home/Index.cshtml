@@ -4,19 +4,34 @@
 
 }
 
-@model List<WebDemoMVC.Models.StudentModels>
+@model List<WebDemoMVC.EntitiesFrameWork.Entites.Category>
 
 <div class="jumbotron">
     <h1>ASP.NET BE 3007 THAY QUAN Ngay : @datetime</h1>
 </div>
 
+
+
 <div class="row">
+    <div>
+        <div class="form-group">
+            <input type="text" id="txtCatId" class="form-control" placeholder="Nhập ID" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="txtCateName" placeholder="Nhập tên" />
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" id="btnSave" type="button">Thêm mới</button>
+        </div>
+    </div>
+
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Lastname</th>
-
+                <th>Hành động</th>
             </tr>
         </thead>
         <tbody>
@@ -25,8 +40,9 @@
                 foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.Id</td>
-                        <td>@item.Name</td>
+                        <td>@item.CategoryId</td>
+                        <td>@item.CategoryName</td>
+                        <td><a onclick="Category_Delete(@item.CategoryId)">Xóa</a></td>
                     </tr>
                 }
             }
@@ -34,3 +50,59 @@
         </tbody>
     </table>
 </div>
+<script>
+    $(document).ready(function () {
+
+        $("#btnSave").click(function () {
+            CategoryInsert();
+        })
+
+    });
+
+    function Category_Delete(id) {
+
+        var result = confirm("Bạn có chắc chắn muốn xóa bản ghi này không ?");
+
+        if (result == true) {
+            var param = {
+                id: id
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: "/Home/Delete",
+                data: param,
+                dataType: "json",
+                success: function (data) {
+                    alert(data.msg);
+                },
+                error: function (data) {
+                    console.log("error:" + JSON.stringify(data));
+                }
+            });
+        }
+    }
+
+    function CategoryInsert() {
+
+        var id = $("#txtCatId").val();
+        var name = $("#txtCateName").val();
+
+        var param = {
+            id: id,
+            name: name
+        };
+        $.ajax({
+            type: 'POST',
+            url: "/Home/Insert",
+            data: param,
+            dataType: "json",
+            success: function (data) {
+                alert(data.msg);
+            },
+            error: function (data) {
+                console.log("error:" + JSON.stringify(data));
+            }
+        });
+    }
+</script>

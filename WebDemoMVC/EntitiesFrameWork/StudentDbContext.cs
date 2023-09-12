@@ -11,9 +11,10 @@ namespace WebDemoMVC.EntitiesFrameWork
     {
         public StudentDbContext() : base("ManagerProduct")
         {
-
+            //Database.SetInitializer(new DropCreateDatabaseAlways<StudentDbContext>());
         }
 
         public DbSet<Student> student { get; set; }
+        public DbSet<Category> categorie { get; set; }
     }
 }

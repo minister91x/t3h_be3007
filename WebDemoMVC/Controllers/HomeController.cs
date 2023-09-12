@@ -4,39 +4,91 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebDemoMVC.EntitiesFrameWork;
+using WebDemoMVC.EntitiesFrameWork.Entites;
 using WebDemoMVC.Models;
 
 namespace WebDemoMVC.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index(string name)
         {
-            var model = new List<StudentModels>();
+            var productManger = new WebDemoMVC.CategoryManager.CategoryManager();
+            var model = new List<Category>();
 
-            var dbContext = new StudentDbContext();
-            // dbContext.SaveChanges();
-            //dbContext.student.Add(new EntitiesFrameWork.Entites.Student { Id = 10, Name = "abc_def10" });
-           // dbContext.student.Add(new EntitiesFrameWork.Entites.Student { Id = 11, Name = "abc_def11" });
-           // dbContext.student.Add(new EntitiesFrameWork.Entites.Student { Id = 12, Name = "abc_def12" });
+            //var cate = new Category
+            //{
+            //    CategoryId = 1,
+            //    CategoryName = "Điện tử"
+            //};
 
+            //var result = productManger.Category_InsertUpdate(cate, 0);
 
+            //if (result > 0)
+            //{
+            //    // xử lý thông báo
+            //    model = productManger.Categories_GetList(0, "").ToList();
+            //}
 
-
-            var list_student = dbContext.student.ToList();
-            if (list_student.Count > 0)
-            {
-                for (int i = 0; i < list_student.Count; i++)
-                {
-                    var item = list_student[i];
-                    model.Add(new StudentModels { Id = item.Id, Name = item.Name });
-                }
-            }
-
+            model = productManger.Categories_GetList(0, "").ToList();
 
             return View(model);
         }
 
+
+        public JsonResult Insert(int id, string name)
+        {
+            try
+            {
+                var productManger = new WebDemoMVC.CategoryManager.CategoryManager();
+
+                var cate = new Category
+                {
+                    CategoryId = id,
+                    CategoryName = name
+                };
+
+                var result = productManger.Category_InsertUpdate(cate, 0);
+                if (result > 0)
+                {
+                    return Json(new { code = 1, msg = "Thêm mới thành công" });
+                }
+                else
+                {
+                    return Json(new { code = 0, msg = "Thêm mới thất bại" });
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return Json(new { code = -99, msg = ex.Message });
+            }
+        }
+
+        public JsonResult Delete(int id)
+        {
+            try
+            {
+                var productManger = new WebDemoMVC.CategoryManager.CategoryManager();
+
+
+                var result = productManger.Category_Delete(id);
+                if (result > 0)
+                {
+                    return Json(new { code = 1, msg = "Xóa mới thành công" });
+                }
+                else
+                {
+                    return Json(new { code = 0, msg = "Xóa mới thất bại" });
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return Json(new { code = -99, msg = ex.Message });
+            }
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
