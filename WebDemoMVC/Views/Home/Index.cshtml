@@ -70,7 +70,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "/Home/Delete",
+                url: "/Home/Del",
                 data: param,
                 dataType: "json",
                 success: function (data) {
@@ -89,8 +89,8 @@
         var name = $("#txtCateName").val();
 
         var param = {
-            id: id,
-            name: name
+            CategoryId: id,
+            CategoryName: name
         };
         $.ajax({
             type: 'POST',

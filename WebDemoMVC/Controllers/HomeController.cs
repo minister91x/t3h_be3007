@@ -37,7 +37,7 @@ namespace WebDemoMVC.Controllers
         }
 
 
-        public JsonResult Insert(int id, string name)
+        public ActionResult Insert(Category model)
         {
             try
             {
@@ -45,8 +45,8 @@ namespace WebDemoMVC.Controllers
 
                 var cate = new Category
                 {
-                    CategoryId = id,
-                    CategoryName = name
+                    CategoryId = model.CategoryId,
+                    CategoryName = model.CategoryName
                 };
 
                 var result = productManger.Category_InsertUpdate(cate, 0);
@@ -66,14 +66,15 @@ namespace WebDemoMVC.Controllers
             }
         }
 
-        public JsonResult Delete(int id)
+        [ActionName("Del")]
+        public JsonResult Delete(int? id)
         {
             try
             {
                 var productManger = new WebDemoMVC.CategoryManager.CategoryManager();
 
 
-                var result = productManger.Category_Delete(id);
+                var result = productManger.Category_Delete(Convert.ToInt32(id));
                 if (result > 0)
                 {
                     return Json(new { code = 1, msg = "Xóa mới thành công" });

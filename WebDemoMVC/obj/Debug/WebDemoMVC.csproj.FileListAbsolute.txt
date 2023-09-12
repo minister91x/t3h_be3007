@@ -81,5 +81,3 @@ C:\Users\Admin\source\repos\T3H_BE3007\WebDemoMVC\bin\EntityFramework.dll
 C:\Users\Admin\source\repos\T3H_BE3007\WebDemoMVC\bin\EntityFramework.SqlServer.dll
 C:\Users\Admin\source\repos\T3H_BE3007\WebDemoMVC\bin\EntityFramework.xml
 C:\Users\Admin\source\repos\T3H_BE3007\WebDemoMVC\bin\EntityFramework.SqlServer.xml
-C:\Users\Admin\source\repos\T3H_BE3007\WebDemoMVC\obj\Debug\WebDemoMVC.Migrations.student.resources
-C:\Users\Admin\source\repos\T3H_BE3007\WebDemoMVC\obj\Debug\WebDemoMVC.csproj.GenerateResource.cache

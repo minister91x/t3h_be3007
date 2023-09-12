@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using WebDemoMVC.EntitiesFrameWork.Entites;
+using WebDemoMVC.Migrations;
 
 namespace WebDemoMVC.EntitiesFrameWork
 {
@@ -11,10 +12,12 @@ namespace WebDemoMVC.EntitiesFrameWork
     {
         public StudentDbContext() : base("ManagerProduct")
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<StudentDbContext>());
+          // Database.SetInitializer(new MigrateDatabaseToLatestVersion<StudentDbContext>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<StudentDbContext, Configuration>());
         }
 
-        public DbSet<Student> student { get; set; }
+        //public DbSet<Student> student { get; set; }
+        public DbSet<Grade> grade { get; set; }
         public DbSet<Category> categorie { get; set; }
     }
 }

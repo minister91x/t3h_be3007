@@ -130,16 +130,13 @@
     <Compile Include="CategoryManager\CategoryManager.cs" />
     <Compile Include="CategoryManager\ICategory.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Test1Controller.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="EntitiesFrameWork\Entites\Category.cs" />
     <Compile Include="EntitiesFrameWork\Entites\Student.cs" />
     <Compile Include="EntitiesFrameWork\StudentDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202309121240041_student.cs" />
-    <Compile Include="Migrations\202309121240041_student.designer.cs">
-      <DependentUpon>202309121240041_student.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\StudentModels.cs" />
@@ -184,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Test1\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
@@ -198,11 +196,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202309121240041_student.resx">
-      <DependentUpon>202309121240041_student.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
