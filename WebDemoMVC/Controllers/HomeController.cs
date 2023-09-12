@@ -36,7 +36,7 @@ namespace WebDemoMVC.Controllers
             return View(model);
         }
 
-
+        [HttpPost]
         public ActionResult Insert(Category model)
         {
             try
@@ -66,6 +66,39 @@ namespace WebDemoMVC.Controllers
             }
         }
 
+
+        [HttpPut]
+        public ActionResult Update(Category model)
+        {
+            try
+            {
+                var productManger = new WebDemoMVC.CategoryManager.CategoryManager();
+
+                var cate = new Category
+                {
+                    CategoryId = model.CategoryId,
+                    CategoryName = model.CategoryName
+                };
+
+                var result = productManger.Category_InsertUpdate(cate, 1);
+                if (result > 0)
+                {
+                    return Json(new { code = 1, msg = "Thêm mới thành công" });
+                }
+                else
+                {
+                    return Json(new { code = 0, msg = "Thêm mới thất bại" });
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return Json(new { code = -99, msg = ex.Message });
+            }
+        }
+
+
+        [HttpDelete]
         [ActionName("Del")]
         public JsonResult Delete(int? id)
         {
