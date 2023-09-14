@@ -15,10 +15,22 @@ namespace WebDemoMVC.CategoryManager
             var list = new List<Category>();
             try
             {
+                //Bước 1 : đi lấy dữ liêu ( SQL , XML ...vvv)
+
                 list = dbContext.categorie.ToList();
                 if (cateId > 0)
                 {
-                    list = list.FindAll(s => s.CategoryId == cateId).ToList();
+                    // Đã có dữ liệu trong tay thì dùng LINQ để lọc dữ liệu
+                    list = list.FindAll(a => a.CategoryId == cateId && a.CategoryName.Contains("điện tử")).ToList();
+                    //list = list.Where(a => a.CategoryId == cateId).ToList();
+
+                    var list1 = from item
+                                in list
+                                where
+                                item.CategoryId == cateId
+                                orderby item.CategoryId descending
+                                select item;
+
                 }
 
                 if (!string.IsNullOrEmpty(Name))

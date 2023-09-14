@@ -5,13 +5,16 @@ using System.Web;
 using System.Web.Mvc;
 using WebDemoMVC.EntitiesFrameWork;
 using WebDemoMVC.EntitiesFrameWork.Entites;
+using WebDemoMVC.Filter;
 using WebDemoMVC.Models;
 
 namespace WebDemoMVC.Controllers
 {
+
+  
     public class HomeController : Controller
     {
-
+        [LogTest]
         public ActionResult Index(string name)
         {
             var productManger = new WebDemoMVC.CategoryManager.CategoryManager();
@@ -100,7 +103,7 @@ namespace WebDemoMVC.Controllers
 
         [HttpDelete]
         [ActionName("Del")]
-        public JsonResult Delete(int? id)
+        public ActionResult Delete(int? id)
         {
             try
             {
@@ -123,17 +126,34 @@ namespace WebDemoMVC.Controllers
                 return Json(new { code = -99, msg = ex.Message });
             }
         }
+
+
+        public ActionResult PartialViewDemo()
+        {
+            return PartialView();
+           
+        }
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return RedirectToAction("Contact","Home");
         }
 
+        [HandleError(ExceptionType = typeof(ArgumentOutOfRangeException), View = "CustomErrorPage")]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
+            var model = new List<Category>();
+            var abc = model[1].CategoryName;
+            return View();
+        }
+
+        public ActionResult CustomErrorPage()
+        {
             return View();
         }
     }
