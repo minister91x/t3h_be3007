@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="row">
+    <div class="form-group">
+        <div class="col-md-6">
+            <input type="text" class="form-control col-md-8" id="txtKeySearch" />
+            <button class="btn btn-primary  col-md-2" id="btnSearch">Tìm </button>
+        </div>
+    </div>
+</div>
+<div id="KhoChuaPartial" ></div>
+
+<script>
+    $(document).ready(function () {
+        LoadData("");
+
+        $("#btnSearch").click(function () {
+            var keysearch = $("#txtKeySearch").val();
+            LoadData(keysearch);
+        });
+    });
+
+    function LoadData(keysearch) {
+
+        var param = {
+            keysearch: keysearch
+        };
+        $.ajax({
+            type: 'GET',
+            url: "/Product/ProductListPartialView",
+            data: param,
+            dataType: "html",
+            success: function (data) {
+                $("#KhoChuaPartial").html(""); // quét dọn kho
+                $("#KhoChuaPartial").html(data); // đưa hàng vào kho
+            },
+            error: function (data) {
+                console.log("error:" + JSON.stringify(data));
+            }
+        });
+    }
+</script>

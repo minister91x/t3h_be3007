@@ -129,10 +129,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CategoryManager\CategoryManager.cs" />
     <Compile Include="CategoryManager\ICategory.cs" />
+    <Compile Include="CategoryManager\IProduct.cs" />
+    <Compile Include="CategoryManager\ProductManager.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\Test1Controller.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="EntitiesFrameWork\Entites\Category.cs" />
+    <Compile Include="EntitiesFrameWork\Entites\Order.cs" />
+    <Compile Include="EntitiesFrameWork\Entites\OrderDetail.cs" />
+    <Compile Include="EntitiesFrameWork\Entites\Product.cs" />
     <Compile Include="EntitiesFrameWork\Entites\Student.cs" />
     <Compile Include="EntitiesFrameWork\StudentDbContext.cs" />
     <Compile Include="Filter\ExceptionAttribute.cs" />
@@ -141,6 +147,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ReturnData.cs" />
     <Compile Include="Models\StudentModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -182,6 +189,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\PartialViewDemo.cshtml" />
     <Content Include="Views\Home\CustomErrorPage.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\ProductListPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

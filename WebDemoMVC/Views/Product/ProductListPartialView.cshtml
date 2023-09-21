@@ -1,0 +1,53 @@
+﻿@model List<WebDemoMVC.EntitiesFrameWork.Entites.Product>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actin</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr id="trProduct_@item.Id">
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td><a onclick="Product_Delete(@item.Id)">Xóa</a></td>
+                </tr>
+
+            }
+        }
+    </tbody>
+</table>
+<script>
+    function Product_Delete(id) {
+
+        var result = confirm("Bạn có chắc chắn muốn xóa không?");
+        if (result) {
+
+            var param = {
+                id: id
+            };
+
+            $.ajax({
+                type: 'GET',
+                url: "/Product/Product_Delete",
+                data: param,
+                dataType: "json",
+                success: function (data) {
+
+                    $("#trProduct_" + id).hide();
+
+                    alert(data.ReturnMsg);
+                },
+                error: function (data) {
+                    console.log("error:" + JSON.stringify(data));
+                }
+            });
+        }
+    }
+</script>
