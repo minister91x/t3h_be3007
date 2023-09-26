@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var list = new WebDemoMVC.Models.ReturnData();
+    list.ReturnMsg = "Xin chao anh em";
 }
 
 <h2>Index</h2>
@@ -13,7 +15,9 @@
         </div>
     </div>
 </div>
-<div id="KhoChuaPartial" ></div>
+@Html.Action("ProductListPartialView", "Product")
+@Html.Partial("~/Views/Home/PartialViewDemo2.cshtml", list)
+<div id="KhoChuaPartial"></div>
 
 <script>
     $(document).ready(function () {
