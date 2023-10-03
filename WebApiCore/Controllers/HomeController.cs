@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DataAcess.Demo.DO;
+using DataAcess.Demo.IServices;
+using DataAcess.Demo.Request.Product;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApiCore.Controllers
@@ -7,17 +10,25 @@ namespace WebApiCore.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
+        private IProductServices _productServices;
 
-        [HttpPost("GetList")]
-        public async Task<ActionResult> GetList()
+        public HomeController(IProductServices productServices)
         {
-            var lsst = new List<string>();
+            _productServices = productServices;
+        }
+
+        [HttpGet("GetListByHttpGet")]
+        public async Task<ActionResult> GetList(int id)
+        {
+            // var list = new List<Product>();
             try
             {
-                for (int i = 0; i < 10; i++)
+                var requestData = new ProductGetListRequestData
                 {
-                    lsst.Add("item:" + i);
-                }
+                    PrductID = id
+                };
+                var list = await _productServices.GetProducts(requestData);
+                return Ok(list);
             }
             catch (Exception ex)
             {
@@ -25,7 +36,25 @@ namespace WebApiCore.Controllers
                 throw;
             }
 
-            return Ok(lsst);
+            return Ok();
+        }
+
+        [HttpPost("GetList")]
+        public async Task<ActionResult> GetList(ProductGetListRequestData requestData)
+        {
+            // var list = new List<Product>();
+            try
+            {
+                var list = await _productServices.GetProducts(requestData);
+                return Ok(list);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+            return Ok();
         }
     }
 }

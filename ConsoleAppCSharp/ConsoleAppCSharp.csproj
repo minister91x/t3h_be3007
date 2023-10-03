@@ -50,6 +50,8 @@
     <Compile Include="Candidate.cs" />
     <Compile Include="CandidateJob.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ClassA.cs" />
+    <Compile Include="ClassB.cs" />
     <Compile Include="Cow.cs" />
     <Compile Include="CustomEx.cs" />
     <Compile Include="Database\DbHelper.cs" />

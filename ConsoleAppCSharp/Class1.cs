@@ -9,5 +9,12 @@ namespace ConsoleAppCSharp
     public class Class1
     {
         public int ID { get; set; }
+
+        public int Cong1()
+        {
+            //var b = new ClassB();
+            //b.CongHaiSo(1, 2);
+            return 0;
+        }
     }
 }
