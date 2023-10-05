@@ -1,10 +1,15 @@
+using DataAcess.Demo.DBContext;
 using DataAcess.Demo.IServices;
 using DataAcess.Demo.Services;
+using Microsoft.EntityFrameworkCore;
 using WebApiCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add services to the container.
+builder.Services.AddDbContext<MyShopUnitOfWorkDbContext>(options =>
+               options.UseSqlServer(configuration.GetConnectionString("MyConnStr")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

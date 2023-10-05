@@ -1,4 +1,5 @@
-﻿using DataAcess.Demo.DO;
+﻿using DataAcess.Demo.DBContext;
+using DataAcess.Demo.Entities;
 using DataAcess.Demo.IServices;
 using DataAcess.Demo.Request.Product;
 using System;
@@ -11,20 +12,24 @@ namespace DataAcess.Demo.Services
 {
     public class ProductServices : IProductServices
     {
+        MyShopUnitOfWorkDbContext _dbContext;
+
+        public ProductServices(MyShopUnitOfWorkDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public async Task<List<Product>> GetProducts(ProductGetListRequestData requestData)
         {
             var list = new List<Product>();
             try
             {
-               
-                for (int i = 10; i < 15; i++)
-                {
-                    list.Add(new Product { Id = i, Name = "Iphone " + i });
-                }
 
-                if(list.Count>0 && requestData.PrductID > 0)
+                list = _dbContext.sanpham.ToList();
+
+                if (list.Count > 0 && requestData.PrductID > 0)
                 {
-                    list = list.FindAll(s => s.Id == requestData.PrductID).ToList();
+                    list = list.FindAll(s => s.PrductID == requestData.PrductID).ToList();
                 }
             }
             catch (Exception ex)
@@ -34,6 +39,20 @@ namespace DataAcess.Demo.Services
             }
 
             return list;
+        }
+
+        public async Task<int> ProductInsert(Product product)
+        {
+            try
+            {
+                _dbContext.sanpham.Add(product);
+                return _dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }

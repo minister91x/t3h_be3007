@@ -1,4 +1,5 @@
-﻿using DataAcess.Demo.DO;
+﻿
+using DataAcess.Demo.Entities;
 using DataAcess.Demo.Request.Product;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace DataAcess.Demo.IServices
 {
     public interface IProductServices
     {
+        Task<int> ProductInsert(Product product);
         Task<List<Product>> GetProducts(ProductGetListRequestData requestData);
     }
 }

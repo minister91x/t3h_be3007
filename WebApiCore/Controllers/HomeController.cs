@@ -1,4 +1,4 @@
-﻿using DataAcess.Demo.DO;
+﻿using DataAcess.Demo.Entities;
 using DataAcess.Demo.IServices;
 using DataAcess.Demo.Request.Product;
 using Microsoft.AspNetCore.Http;
@@ -17,6 +17,22 @@ namespace WebApiCore.Controllers
             _productServices = productServices;
         }
 
+
+        [HttpPost("ProductInsert")]
+        public async Task<ActionResult> ProductInsert(Product product)
+        {
+            try
+            {
+                var result = await _productServices.ProductInsert(product);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
         [HttpGet("GetListByHttpGet")]
         public async Task<ActionResult> GetList(int id)
         {
