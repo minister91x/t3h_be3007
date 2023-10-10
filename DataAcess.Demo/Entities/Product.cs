@@ -14,6 +14,5 @@ namespace DataAcess.Demo.Entities
         public string? PrductName { get; set; }
         public string? DonViTinh { get; set; }
         public int DonGia { get; set; }
-
     }
 }
