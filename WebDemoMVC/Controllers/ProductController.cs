@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,10 +20,22 @@ namespace WebDemoMVC.Controllers
 
         public ActionResult ProductListPartialView(string keysearch)
         {
-            var productManager = new ProductManager();
+            //var productManager = new ProductManager();
 
 
-            var list = productManager.GetProducts(keysearch);
+            var list = new List<ProductModels>();
+
+            var url_api = "http://localhost:5166/api/";
+            var base_url = "Home/GetList";
+
+            var req = new ProductGetListRequest { prductID = 0 };
+            var dataJson = JsonConvert.SerializeObject(req);
+
+            var result = Compuer.Common.HttpHelper.WebPost(url_api, base_url, dataJson);
+            if (!string.IsNullOrEmpty(result))
+            {
+                list = JsonConvert.DeserializeObject<List<ProductModels>>(result);
+            }
 
             TempData["list"] = list;
             return PartialView(list);

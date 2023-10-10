@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAcess.Demo.IServices
 {
-    public interface IProductServices
+    public interface IProductRepository
     {
         Task<int> ProductInsert(Product product);
         Task<List<Product>> GetProducts(ProductGetListRequestData requestData);

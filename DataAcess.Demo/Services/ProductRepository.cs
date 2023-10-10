@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace DataAcess.Demo.Services
 {
-    public class ProductServices : IProductServices
+    public class ProductRepository : IProductRepository
     {
-        MyShopUnitOfWorkDbContext _dbContext;
+      private  MyShopUnitOfWorkDbContext _dbContext;
 
-        public ProductServices(MyShopUnitOfWorkDbContext dbContext)
+        public ProductRepository(MyShopUnitOfWorkDbContext dbContext)
         {
             _dbContext = dbContext;
         }
