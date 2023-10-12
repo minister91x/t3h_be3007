@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAcess.Demo.Entities
 {
-    internal class Account
+    public class Account
     {
+        [Key]
+        public int UserID { get; set; }
+        public string UserName { get; set; }
+        public string PassWord { get; set; }
+        public string FullName { get; set; }
+        public int IsAdmin { get; set; }
     }
     public class AccountLoginRequestData
     {

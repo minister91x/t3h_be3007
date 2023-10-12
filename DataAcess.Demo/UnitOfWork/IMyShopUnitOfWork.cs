@@ -13,6 +13,8 @@ namespace DataAcess.Demo.UnitOfWork
         IProductRepository Products { get; }
         IOrderDetailRepository OrderDetails { get; }
         IAccountRepository AccountRepository { get; }
+
+      
         int Save();
     }
 }

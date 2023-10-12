@@ -15,6 +15,8 @@ namespace WebDemoMVC.Controllers
         // GET: Product
         public ActionResult Index()
         {
+           
+            
             return View();
         }
 
@@ -25,7 +27,7 @@ namespace WebDemoMVC.Controllers
 
             var list = new List<ProductModels>();
 
-            var url_api = "http://localhost:5166/api/";
+            var url_api = System.Configuration.ConfigurationManager.AppSettings["URL_API"] ?? "http://localhost:5166/api/";
             var base_url = "Home/GetList";
 
             var req = new ProductGetListRequest { prductID = 0 };
@@ -54,17 +56,17 @@ namespace WebDemoMVC.Controllers
 
                 if (result < 0)
                 {
-                    returnData.ReturnMsg = "Xóa thất bại";
+                   // returnData.ReturnMsg = "Xóa thất bại";
                     return Json(returnData, JsonRequestBehavior.AllowGet);
                 }
 
-                returnData.ReturnMsg = "Xoá thành công";
+               // returnData.ReturnMsg = "Xoá thành công";
                 return Json(returnData, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
 
-                returnData.ReturnMsg = ex.Message;
+                //returnData.ReturnMsg = ex.Message;
                 return Json(returnData, JsonRequestBehavior.AllowGet);
             }
 

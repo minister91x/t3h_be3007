@@ -2,7 +2,10 @@ using DataAcess.Demo.DBContext;
 using DataAcess.Demo.IServices;
 using DataAcess.Demo.Services;
 using DataAcess.Demo.UnitOfWork;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using WebApiCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +14,19 @@ var configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddDbContext<MyShopUnitOfWorkDbContext>(options =>
                options.UseSqlServer(configuration.GetConnectionString("MyConnStr")));
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:ValidIssuer"],
+        ValidAudience = builder.Configuration["Jwt:ValidAudience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Secret"]))
+    };
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -38,7 +54,7 @@ if (app.Environment.IsDevelopment())
 //});
 //app.UseMiddleware<SimpleMiddleware>();
 
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

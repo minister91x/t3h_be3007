@@ -17,6 +17,11 @@ namespace WebDemoMVC.Controllers
         [LogTest]
         public ActionResult Index(string name)
         {
+            var session = Session["USER_ID"]!=null ? Session["USER_ID"].ToString() : "";
+            if (string.IsNullOrEmpty(session))
+            {
+                return RedirectToAction("Login", "Account");
+            }
             var productManger = new WebDemoMVC.CategoryManager.CategoryManager();
             var model = new List<Category>();
 

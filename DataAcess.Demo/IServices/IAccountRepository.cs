@@ -9,6 +9,7 @@ namespace DataAcess.Demo.IServices
 {
     public interface IAccountRepository
     {
-        Task<int> Account_Login(AccountLoginRequestData requestData);
+        Task<Account> Account_Login(AccountLoginRequestData requestData);
+        
     }
 }

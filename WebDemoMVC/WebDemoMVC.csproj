@@ -148,6 +148,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountLogin.cs" />
     <Compile Include="Models\ProductModels.cs" />
     <Compile Include="Models\ReturnData.cs" />
     <Compile Include="Models\StudentModels.cs" />
