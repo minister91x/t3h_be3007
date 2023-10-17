@@ -32,5 +32,29 @@ namespace Compuer.Common
                 return ex.Message;
             }
         }
+
+        public static string WebPost_WithToken(string url, string baseUrl, string dataJson,string token)
+        {
+            try
+            {
+                //"/api/Home/GetList"
+                var options = new RestClientOptions(url)
+                {
+                    MaxTimeout = -1,
+                };
+                var client = new RestClient(options);
+                var request = new RestRequest(baseUrl, Method.Post);
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Authorization", "Bearer " + token);
+                request.AddStringBody(dataJson, DataFormat.Json);
+                var response = client.ExecuteAsync(request).Result;
+                return response.Content;
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message;
+            }
+        }
     }
 }

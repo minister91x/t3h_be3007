@@ -17,4 +17,12 @@ namespace WebDemoMVC.Models
     {
         public int prductID { get; set; }
     }
+
+    public class FunctionModels
+    {
+        public int FunctionID { get; set; }
+        public string FunctionName { get; set; }
+        public string FunctionCode { get; set; }
+        public string FunctionURL { get; set; }
+    }
 }

@@ -1,0 +1,33 @@
+﻿@model List<WebDemoMVC.Models.FunctionModels>
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+         with font-awesome or any other icon font library -->
+        @if (Model != null && Model.Count > 0)
+        {
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Dashboard
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    @foreach (var item in Model)
+                    {
+
+                        <li class="nav-item">
+                            <a href="@item.FunctionURL" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>@item.FunctionName</p>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </li>
+        }
+
+    </ul>
+</nav>

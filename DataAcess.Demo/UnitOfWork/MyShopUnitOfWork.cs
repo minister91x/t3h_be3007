@@ -11,11 +11,29 @@ namespace DataAcess.Demo.UnitOfWork
 {
     public class MyShopUnitOfWork : IMyShopUnitOfWork
     {
+        //public IAccountRepositoryGeneric accountRepositoryGeneric { get; }
+
+        //public IProductRepositoryGeneric productRepositoryGeneric { get; }
+        //private MyShopUnitOfWorkDbContext _shopDbContext;
+        //public MyShopUnitOfWork(MyShopUnitOfWorkDbContext shopDbContext, 
+        //    IAccountRepositoryGeneric accountRepositoryGeneric, IProductRepositoryGeneric productRepositoryGeneric)
+        //{
+        //    _shopDbContext = shopDbContext;
+        //    this.accountRepositoryGeneric = accountRepositoryGeneric;
+        //    this.productRepositoryGeneric = productRepositoryGeneric;
+        //}
+
+
+
         public IProductRepository Products { get; }
 
         public IOrderDetailRepository OrderDetails { get; }
 
         public IAccountRepository AccountRepository { get; }
+
+        public IFuncitonServices funcitonServices { get; }
+
+        public IUserFuncitonServices userFuncitonServices { get; }
 
         private MyShopUnitOfWorkDbContext _shopDbContext;
 

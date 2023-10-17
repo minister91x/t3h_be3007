@@ -15,17 +15,19 @@ namespace WebDemoMVC.Controllers
         // GET: Product
         public ActionResult Index()
         {
-           
-            
+
+
             return View();
         }
 
-        public ActionResult ProductListPartialView(string keysearch)
+        public ActionResult ProductListPartialView(ProductListRequestData requestData)
         {
             //var productManager = new ProductManager();
-
-
             var list = new List<ProductModels>();
+            if (string.IsNullOrEmpty(requestData.token))
+            {
+                return PartialView(list);
+            }
 
             var url_api = System.Configuration.ConfigurationManager.AppSettings["URL_API"] ?? "http://localhost:5166/api/";
             var base_url = "Home/GetList";
@@ -33,7 +35,9 @@ namespace WebDemoMVC.Controllers
             var req = new ProductGetListRequest { prductID = 0 };
             var dataJson = JsonConvert.SerializeObject(req);
 
-            var result = Compuer.Common.HttpHelper.WebPost(url_api, base_url, dataJson);
+            //var token = Request.Cookies["TOKEN_SERVER"] != null ? Request.Cookies["TOKEN_SERVER"].Value : string.Empty;
+
+            var result = Compuer.Common.HttpHelper.WebPost_WithToken(url_api, base_url, dataJson, requestData.token);
             if (!string.IsNullOrEmpty(result))
             {
                 list = JsonConvert.DeserializeObject<List<ProductModels>>(result);
@@ -56,11 +60,11 @@ namespace WebDemoMVC.Controllers
 
                 if (result < 0)
                 {
-                   // returnData.ReturnMsg = "Xóa thất bại";
+                    // returnData.ReturnMsg = "Xóa thất bại";
                     return Json(returnData, JsonRequestBehavior.AllowGet);
                 }
 
-               // returnData.ReturnMsg = "Xoá thành công";
+                // returnData.ReturnMsg = "Xoá thành công";
                 return Json(returnData, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -72,5 +76,7 @@ namespace WebDemoMVC.Controllers
 
 
         }
+
+
     }
 }

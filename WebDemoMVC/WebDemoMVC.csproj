@@ -133,6 +133,7 @@
     <Compile Include="CategoryManager\ProductManager.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\Test1Controller.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -149,6 +150,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountLogin.cs" />
+    <Compile Include="Models\ProductListRequestData.cs" />
     <Compile Include="Models\ProductModels.cs" />
     <Compile Include="Models\ReturnData.cs" />
     <Compile Include="Models\StudentModels.cs" />
@@ -2251,6 +2253,7 @@
     <Content Include="Views\Home\PartialViewDemo2.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Menu\MenuLeftPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

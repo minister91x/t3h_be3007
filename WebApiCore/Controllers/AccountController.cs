@@ -39,6 +39,7 @@ namespace WebApiCore.Controllers
 
                 // bước 2 : Tạo token dựa trên object user
                 var authClaims = new List<Claim> {
+                      new Claim(ClaimTypes.PrimarySid, user.UserID.ToString()),
                     new Claim(ClaimTypes.Name, user.UserName),
                     new Claim(ClaimTypes.NameIdentifier, user.FullName) };
 

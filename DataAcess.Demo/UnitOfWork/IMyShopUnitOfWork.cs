@@ -14,7 +14,12 @@ namespace DataAcess.Demo.UnitOfWork
         IOrderDetailRepository OrderDetails { get; }
         IAccountRepository AccountRepository { get; }
 
-      
+        IFuncitonServices funcitonServices { get; }
+        IUserFuncitonServices userFuncitonServices { get; }
+
+        //IAccountRepositoryGeneric accountRepositoryGeneric { get; }
+        //IProductRepositoryGeneric productRepositoryGeneric { get; } 
+
         int Save();
     }
 }

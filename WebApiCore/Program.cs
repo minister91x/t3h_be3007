@@ -39,6 +39,11 @@ builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<IOrderDetailRepository, OrderDetailRepository>();
 builder.Services.AddTransient<IAccountRepository, AccountRepository>();
 
+
+builder.Services.AddTransient<IFuncitonServices, FuncitonServices>();
+builder.Services.AddTransient<IUserFuncitonServices, UserFuncitonServices>();
+//builder.Services.AddTransient<IAccountRepositoryGeneric, AccountRepositoryGeneric>();
+//builder.Services.AddTransient<IProductRepositoryGeneric, ProductRepositoryGeneric>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
