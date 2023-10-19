@@ -4,6 +4,21 @@
     "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\WebApiCore\\WebApiCore.csproj": {}
   },
   "projects": {
+    "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\Compuer.Common\\Compuer.Common.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\Compuer.Common\\Compuer.Common.csproj",
+        "projectName": "Compuer.Common",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\Compuer.Common\\Compuer.Common.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\DataAcess.Demo\\DataAcess.Demo.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -102,6 +117,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\Compuer.Common\\Compuer.Common.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\Compuer.Common\\Compuer.Common.csproj"
+              },
               "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\DataAcess.Demo\\DataAcess.Demo.csproj": {
                 "projectPath": "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\DataAcess.Demo\\DataAcess.Demo.csproj"
               }
@@ -128,9 +146,17 @@
               "target": "Package",
               "version": "[6.0.22, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[7.0.3, )"
             }
           },
           "imports": [
