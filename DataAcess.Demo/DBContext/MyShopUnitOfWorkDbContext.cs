@@ -1,4 +1,6 @@
 ﻿using DataAcess.Demo.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,11 +10,9 @@ using System.Threading.Tasks;
 
 namespace DataAcess.Demo.DBContext
 {
-    public class MyShopUnitOfWorkDbContext : Microsoft.EntityFrameworkCore.DbContext
+    public class MyShopUnitOfWorkDbContext : IdentityDbContext<IdentityUser>
     {
-        public MyShopUnitOfWorkDbContext(DbContextOptions options) : base(options)
-        {
-        }
+        public MyShopUnitOfWorkDbContext(DbContextOptions<MyShopUnitOfWorkDbContext> options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder builder) { base.OnModelCreating(builder); }
         public DbSet<Product>? sanpham { get; set; }
         public DbSet<Account>? user { get; set; }

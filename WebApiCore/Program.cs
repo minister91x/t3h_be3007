@@ -3,6 +3,7 @@ using DataAcess.Demo.IServices;
 using DataAcess.Demo.Services;
 using DataAcess.Demo.UnitOfWork;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -13,7 +14,10 @@ var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddDbContext<MyShopUnitOfWorkDbContext>(options =>
-               options.UseSqlServer(configuration.GetConnectionString("MyConnStr")));
+               options.UseSqlServer(configuration.GetConnectionString("MyConnStr"), b => b.MigrationsAssembly("WebApiCore")));
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<MyShopUnitOfWorkDbContext>().AddDefaultTokenProviders();
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
