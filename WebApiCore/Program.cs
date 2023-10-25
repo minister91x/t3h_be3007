@@ -16,7 +16,7 @@ var configuration = builder.Configuration;
 builder.Services.AddDbContext<MyShopUnitOfWorkDbContext>(options =>
                options.UseSqlServer(configuration.GetConnectionString("MyConnStr"), b => b.MigrationsAssembly("WebApiCore")));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<MyShopUnitOfWorkDbContext>().AddDefaultTokenProviders();
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<MyShopUnitOfWorkDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
@@ -56,12 +56,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-//app.Run(async context =>
-//{
-//    await context.Response.WriteAsync("Hello world!");
-//});
-//app.UseMiddleware<SimpleMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();

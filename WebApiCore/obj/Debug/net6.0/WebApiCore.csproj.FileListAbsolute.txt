@@ -80,3 +80,6 @@ C:\Users\Admin\source\repos\T3H_BE3007\WebApiCore\bin\Debug\net6.0\Microsoft.Bcl
 C:\Users\Admin\source\repos\T3H_BE3007\WebApiCore\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Admin\source\repos\T3H_BE3007\WebApiCore\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\Admin\source\repos\T3H_BE3007\WebApiCore\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Admin\source\repos\T3H_BE3007\WebApiCore\bin\Debug\net6.0\NLog.config
+C:\Users\Admin\source\repos\T3H_BE3007\WebApiCore\bin\Debug\net6.0\NLog.dll
+C:\Users\Admin\source\repos\T3H_BE3007\WebApiCore\bin\Debug\net6.0\NLog.Extensions.Logging.dll

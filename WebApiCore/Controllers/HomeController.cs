@@ -5,8 +5,10 @@ using DataAcess.Demo.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Security.Claims;
 using WebApiCore.Filter;
+using WebApiCore.LogServices;
 using WebApiCore.Models;
 
 namespace WebApiCore.Controllers
@@ -23,12 +25,15 @@ namespace WebApiCore.Controllers
         //}
 
         private IMyShopUnitOfWork _myShopUnitOfWork;
+      //  private readonly ILoggerManager _loggerManager;
         public HomeController(IMyShopUnitOfWork myShopUnitOfWork)
         {
             _myShopUnitOfWork = myShopUnitOfWork;
+         // _loggerManager = loggerManager;
         }
 
         [HttpPost("ProductInsert")]
+        [MyShopAuthorize("ABC", "DEFT")]
         public async Task<ActionResult> ProductInsert(Product product)
         {
             try
@@ -50,11 +55,11 @@ namespace WebApiCore.Controllers
             // var list = new List<Product>();
             try
             {
-                var getcurrentUser = GetCurrentUser();
-                if (getcurrentUser == null || string.IsNullOrEmpty(getcurrentUser.Email))
-                {
-                    return Ok(new { code = -1, messenger = "Vui lòng đăng nhâp" });
-                }
+                //var getcurrentUser = GetCurrentUser();
+                //if (getcurrentUser == null || string.IsNullOrEmpty(getcurrentUser.Email))
+                //{
+                //    return Ok(new { code = -1, messenger = "Vui lòng đăng nhâp" });
+                //}
 
                 var requestData = new ProductGetListRequestData
                 {
@@ -62,6 +67,8 @@ namespace WebApiCore.Controllers
                 };
                 //var list = await _productServices.GetProducts(requestData);
                 var list = await _myShopUnitOfWork.Products.GetProducts(requestData);
+
+              //  _loggerManager.LogInfo("GetProducts:" + JsonConvert.SerializeObject(list));
                 return Ok(list);
             }
             catch (Exception ex)
@@ -74,7 +81,7 @@ namespace WebApiCore.Controllers
         }
 
         [HttpPost("GetList")]
-       // [MyShopAuthorize("HOTEL", "VIEW")]
+        // [MyShopAuthorize("HOTEL", "VIEW")]
         public async Task<ActionResult> GetList(ProductGetListRequestData requestData)
         {
             // var list = new List<Product>();
@@ -87,12 +94,12 @@ namespace WebApiCore.Controllers
                 }
 
                 // check role 
-                var checkRole = await UserCheckRole(getcurrentUser.ID, "HOTEL", "VIEW");
+                //var checkRole = await UserCheckRole(getcurrentUser.ID, "HOTEL", "VIEW");
 
-                if (!checkRole)
-                {
-                    return Ok(new { code = -1, messenger = "kHÔNG CÓ QUYỀN" });
-                }
+                //if (!checkRole)
+                //{
+                //    return Ok(new { code = -1, messenger = "kHÔNG CÓ QUYỀN" });
+                //}
 
                 var list = await _myShopUnitOfWork.Products.GetProducts(requestData);
                 return Ok(list);

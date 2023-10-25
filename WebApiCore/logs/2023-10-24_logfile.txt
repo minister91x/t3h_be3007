@@ -1,0 +1,11 @@
+2023-10-24 20:26:44.1882 INFO Here is info message from the controller.
+2023-10-24 20:26:44.2424 DEBUG Here is debug message from the controller.
+2023-10-24 20:26:44.2424 WARN Here is warn message from the controller.
+2023-10-24 20:26:44.2424 ERROR Here is error message from the controller.
+2023-10-24 20:28:55.2979 INFO 638337761350413730 | user:{"Name":"MrQuan","Department":"BE_NET_CORE_0323","_logger":{}}
+2023-10-24 20:28:55.3476 DEBUG Here is debug message from the controller.
+2023-10-24 20:28:55.3598 WARN Here is warn message from the controller.
+2023-10-24 20:28:55.3598 ERROR Here is error message from the controller.
+2023-10-24 20:32:38.5825 INFO GetProducts:[]
+2023-10-24 20:33:47.8580 INFO GetProducts:[{"PrductID":1,"PrductName":"Iphone 15","DonViTinh":"cái","DonGia":100000}]
+2023-10-24 20:34:17.2344 INFO GetProducts:[{"PrductID":1,"PrductName":"Iphone 15","DonViTinh":"cái","DonGia":20000}]

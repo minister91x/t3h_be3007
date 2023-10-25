@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fRRcsa/ijgQXME8EDpuAlDT3nZcTHD40zwpAizflXGmWmEP766gZxeRefb6ayDb0La3NPUsiu6R5LxllItrRLg==",
+  "dgSpecHash": "j58qV7AZN2p0MWpAkRqo2T/t6dW6ZtsO2iflq5I30Yk9mZ07cVIzUYfQAloZByS6NKRSSTJxzgmoYYyg2rJiPg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\WebApiCore\\WebApiCore.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,8 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\nlog\\5.2.5\\nlog.5.2.5.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\nlog.extensions.logging\\5.3.5\\nlog.extensions.logging.5.3.5.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
