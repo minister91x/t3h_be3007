@@ -10,6 +10,8 @@ namespace DataAcess.Demo.IServices
     public interface IAccountRepository
     {
         Task<Account> Account_Login(AccountLoginRequestData requestData);
-        
+
+        Task<Account> Account_GetByUserName(Account_GetByUserName requestData);
+        Task<int> Account_UpDateRefeshToken(AccountLoginUpdateRefeshTokenRequestData requestData);
     }
 }

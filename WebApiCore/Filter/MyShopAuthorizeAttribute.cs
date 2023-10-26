@@ -20,14 +20,20 @@ namespace WebApiCore.Filter
         public readonly MyShopUnitOfWorkDbContext _dbcontext;
         private readonly string _functionCode;
         private readonly string _permission;
-        public AuthorizeActionFilter(string functionCode, string permission, MyShopUnitOfWorkDbContext dbcontext)
+
+        private IHttpContextAccessor _hcontext;
+        public AuthorizeActionFilter(string functionCode, string permission,
+            MyShopUnitOfWorkDbContext dbcontext, IHttpContextAccessor hcontext)
         {
             _functionCode = functionCode;
             _permission = permission;
             _dbcontext = dbcontext;
+            _hcontext = hcontext;
         }
         public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
         {
+            //ClaimsPrincipal cp = _hcontext.HttpContext.User;
+
             var identity = context.HttpContext.User.Identity as ClaimsIdentity;
             if (identity != null)
             {

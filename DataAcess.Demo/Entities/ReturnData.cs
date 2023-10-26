@@ -11,5 +11,8 @@ namespace DataAcess.Demo.Entities
         public int ResponseCode { get; set; }
         public string Description { get; set; }
         public string Extention { get; set; }
+        public string Expiration { get; set; }
+        public string Token { get; set; }
+        public string RefreshToken { get; set; }
     }
 }

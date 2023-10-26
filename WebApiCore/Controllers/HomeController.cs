@@ -25,15 +25,15 @@ namespace WebApiCore.Controllers
         //}
 
         private IMyShopUnitOfWork _myShopUnitOfWork;
-      //  private readonly ILoggerManager _loggerManager;
+        //  private readonly ILoggerManager _loggerManager;
         public HomeController(IMyShopUnitOfWork myShopUnitOfWork)
         {
             _myShopUnitOfWork = myShopUnitOfWork;
-         // _loggerManager = loggerManager;
+            // _loggerManager = loggerManager;
         }
 
         [HttpPost("ProductInsert")]
-        [MyShopAuthorize("ABC", "DEFT")]
+        [MyCustomAuthorize("PRODUCT_GETLIST", "INSERT")]
         public async Task<ActionResult> ProductInsert(Product product)
         {
             try
@@ -50,6 +50,7 @@ namespace WebApiCore.Controllers
         }
 
         [HttpGet("GetListByHttpGet")]
+
         public async Task<ActionResult> GetList(int id)
         {
             // var list = new List<Product>();
@@ -68,7 +69,7 @@ namespace WebApiCore.Controllers
                 //var list = await _productServices.GetProducts(requestData);
                 var list = await _myShopUnitOfWork.Products.GetProducts(requestData);
 
-              //  _loggerManager.LogInfo("GetProducts:" + JsonConvert.SerializeObject(list));
+                //  _loggerManager.LogInfo("GetProducts:" + JsonConvert.SerializeObject(list));
                 return Ok(list);
             }
             catch (Exception ex)
@@ -81,17 +82,17 @@ namespace WebApiCore.Controllers
         }
 
         [HttpPost("GetList")]
-        // [MyShopAuthorize("HOTEL", "VIEW")]
+        [MyCustomAuthorize("PRODUCT_GETLIST", "VIEW")]
         public async Task<ActionResult> GetList(ProductGetListRequestData requestData)
         {
             // var list = new List<Product>();
             try
             {
-                var getcurrentUser = GetCurrentUser();
-                if (getcurrentUser == null || string.IsNullOrEmpty(getcurrentUser.Email))
-                {
-                    return Ok(new { code = -1, messenger = "Vui lòng đăng nhâp" });
-                }
+                //var getcurrentUser = GetCurrentUser();
+                //if (getcurrentUser == null || string.IsNullOrEmpty(getcurrentUser.Email))
+                //{
+                //    return Ok(new { code = -1, messenger = "Vui lòng đăng nhâp" });
+                //}
 
                 // check role 
                 //var checkRole = await UserCheckRole(getcurrentUser.ID, "HOTEL", "VIEW");

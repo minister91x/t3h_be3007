@@ -64,6 +64,7 @@ namespace WebDemoMVC.Controllers
                 {
                     Session["USER_ID"] = returnData.ResponseCode;
                     Session["USER_FULLNAME"] = returnData.Extention;
+                    Session.Timeout = 10;
                 }
                 // trả kết quả về View 
                 return Json(returnData, JsonRequestBehavior.AllowGet);

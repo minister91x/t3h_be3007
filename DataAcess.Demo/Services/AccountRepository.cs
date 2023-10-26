@@ -18,9 +18,16 @@ namespace DataAcess.Demo.Services
             _dbContext = dbContext;
         }
 
+        public async Task<Account> Account_GetByUserName(Account_GetByUserName requestData)
+        {
+            var user = _dbContext.user.ToList().FindAll(s => s.UserName == requestData.UserName).FirstOrDefault();
+
+            return user;
+        }
+
         public async Task<Account> Account_Login(AccountLoginRequestData requestData)
         {
-            
+
             try
             {
                 // Login : tìm xem có username và passwork nào trong db giống client truyền lên không 
@@ -28,7 +35,7 @@ namespace DataAcess.Demo.Services
                 && s.PassWord == requestData.Password).FirstOrDefault();
 
                 // nếu không có thì trả về acc rỗng
-                if(result == null || result.UserID <= 0) { return new Account(); }
+                if (result == null || result.UserID <= 0) { return new Account(); }
 
                 //nếu có thì trả về thông tin user
                 var user = _dbContext.user.ToList().FindAll(s => s.UserID == result.UserID).FirstOrDefault(); ;
@@ -40,5 +47,31 @@ namespace DataAcess.Demo.Services
             }
             return new Account();
         }
+
+        public async Task<int> Account_UpDateRefeshToken(AccountLoginUpdateRefeshTokenRequestData requestData)
+        {
+            try
+            {
+                var user = _dbContext.user.ToList().FindAll(s => s.UserID == requestData.UserID).FirstOrDefault();
+                if (user != null)
+                {
+                    user.RefreshToken = requestData.RefreshToken;
+                    user.RefreshTokenExpiryTime = requestData.RefreshTokenExpiryTime;
+                    _dbContext.user.Update(user);
+                    return await _dbContext.SaveChangesAsync();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+            return 0;
+        }
+
+
     }
 }

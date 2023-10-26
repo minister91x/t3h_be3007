@@ -17,7 +17,7 @@ builder.Services.AddDbContext<MyShopUnitOfWorkDbContext>(options =>
                options.UseSqlServer(configuration.GetConnectionString("MyConnStr"), b => b.MigrationsAssembly("WebApiCore")));
 
 //builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<MyShopUnitOfWorkDbContext>().AddDefaultTokenProviders();
-
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
@@ -48,6 +48,8 @@ builder.Services.AddTransient<IFuncitonServices, FuncitonServices>();
 builder.Services.AddTransient<IUserFuncitonServices, UserFuncitonServices>();
 //builder.Services.AddTransient<IAccountRepositoryGeneric, AccountRepositoryGeneric>();
 //builder.Services.AddTransient<IProductRepositoryGeneric, ProductRepositoryGeneric>();
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

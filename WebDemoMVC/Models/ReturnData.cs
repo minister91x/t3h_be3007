@@ -11,4 +11,9 @@ namespace WebDemoMVC.Models
         public string Description { get; set; }
         public string Extention { get; set; }
     }
+
+    public class GetPrincipalFromExpiredTokenRequestData
+    {
+        public string token { get; set; }
+    }
 }

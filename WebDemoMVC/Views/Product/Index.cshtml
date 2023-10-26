@@ -22,6 +22,13 @@
 
 <script>
     $(document).ready(function () {
+
+        var check = CheckToken();
+        if (check < 0) {
+            window.location.href = "/Account/Login";
+            return;
+        }
+
         LoadData("");
 
         $("#btnSearch").click(function () {
@@ -29,6 +36,25 @@
             LoadData(keysearch);
         });
     });
+
+    function CheckToken() {
+        debugger;
+        var param = {
+            token: getCookie("TOKEN_SERVER")
+        };
+        $.ajax({
+            type: 'POST',
+            url: "/ControlleBase/CheckToken",
+            data: param,
+            dataType: "html",
+            success: function (data) {
+                return data.ResponseCode;
+            },
+            error: function (data) {
+                console.log("error:" + JSON.stringify(data));
+            }
+        });
+    }
 
     function LoadData(keysearch) {
         debugger;
