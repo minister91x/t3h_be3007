@@ -118,6 +118,7 @@ namespace WebApiCore.Controllers
 
                 user.RefreshToken = newRefreshToken;
                 int refreshTokenValidityInDays = Convert.ToInt32(_configuration["JWT:RefreshTokenValidityInDays"].ToString());
+               
                 var result = await _myShopUnitOfWork.AccountRepository.Account_UpDateRefeshToken(new AccountLoginUpdateRefeshTokenRequestData
                 {
                     UserID = user.UserID,
