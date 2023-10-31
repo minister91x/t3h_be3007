@@ -221,7 +221,6 @@ namespace WebApiCore.Controllers
             return File(packageReport, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Report.xlsx");
         }
 
-
         private async Task<byte[]?> DesignWorkSheetExportAsync(ProductGetListRequestData requestData, FileInfo path)
         {
             ExcelPackage.LicenseContext = LicenseContext.Commercial;
