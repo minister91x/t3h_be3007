@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hZ6+9AxaZh5MtFGNoUCqnbkWx+AW5nGfBM6KH/byv6B4R8Moge1yXzKnMsseFz+5gzci4eeKT+ggDOhR8utZEg==",
+  "dgSpecHash": "vkSSC59ZiTfPHK4R0A6/fTvN2p30GWuMnSfXubAUjXaqYAjEdk9ay0OIUPR9XxYSI6ayRlxsB4JR+axH9d+4tQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\DataAcess.Demo\\DataAcess.Demo.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\dapper\\2.1.15\\dapper.2.1.15.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.22\\microsoft.aspnetcore.cryptography.internal.6.0.22.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.22\\microsoft.aspnetcore.cryptography.keyderivation.6.0.22.nupkg.sha512",

@@ -1,5 +1,6 @@
 ﻿using DataAcess.Demo.DBContext;
 using DataAcess.Demo.IServices;
+using DataAcess.Demo.Repository;
 using DataAcess.Demo.Services;
 using System;
 using System.Collections.Generic;
@@ -35,17 +36,21 @@ namespace DataAcess.Demo.UnitOfWork
 
         public IUserFuncitonServices userFuncitonServices { get; }
 
+        public IOrderRepository _orderRepository { get; }
+
         private MyShopUnitOfWorkDbContext _shopDbContext;
 
         public MyShopUnitOfWork(MyShopUnitOfWorkDbContext shopDbContext,
             IProductRepository productRepository,
             IOrderDetailRepository orderDetailRepository,
-            IAccountRepository accountRepository)
+            IAccountRepository accountRepository,
+            IOrderRepository orderRepository)
         {
             _shopDbContext = shopDbContext;
             Products = productRepository;
             OrderDetails = orderDetailRepository;
             AccountRepository = accountRepository;
+            _orderRepository = orderRepository; 
         }
 
         public int Save()

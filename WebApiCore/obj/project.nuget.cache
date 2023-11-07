@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CElHUxF6nx0cwsWoAGAFxQmbsXqyU3j5jhGoF87Pqjv57fq+WJjpTIRxnJK6Zs1jPFElx2M8cKUPh3U//k9KmA==",
+  "dgSpecHash": "gGXSxypXcr74rJZUDaopO9NR24b0i669uHeK31Kw1iNJLuPIcfQFPhjmyHAMPc+mPns+OfjsllKjhjRi6Dd7SA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\source\\repos\\T3H_BE3007\\WebApiCore\\WebApiCore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\dapper\\2.1.15\\dapper.2.1.15.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\epplus\\7.0.0\\epplus.7.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\epplus.system.drawing\\6.1.1\\epplus.system.drawing.6.1.1.nupkg.sha512",

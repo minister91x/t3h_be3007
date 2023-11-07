@@ -1,4 +1,5 @@
 ﻿using DataAcess.Demo.IServices;
+using DataAcess.Demo.Repository;
 using DataAcess.Demo.Services;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace DataAcess.Demo.UnitOfWork
 
         IFuncitonServices funcitonServices { get; }
         IUserFuncitonServices userFuncitonServices { get; }
+
+        IOrderRepository _orderRepository { get; }
 
         //IAccountRepositoryGeneric accountRepositoryGeneric { get; }
         //IProductRepositoryGeneric productRepositoryGeneric { get; } 

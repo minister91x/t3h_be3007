@@ -1,5 +1,7 @@
+using DataAcess.Demo.Dapper;
 using DataAcess.Demo.DBContext;
 using DataAcess.Demo.IServices;
+using DataAcess.Demo.Repository;
 using DataAcess.Demo.Services;
 using DataAcess.Demo.UnitOfWork;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -51,6 +53,8 @@ builder.Services.AddTransient<IUserFuncitonServices, UserFuncitonServices>();
 //builder.Services.AddTransient<IProductRepositoryGeneric, ProductRepositoryGeneric>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddTransient<IApplicationDbConnection, ApplicationDbConnection>();
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

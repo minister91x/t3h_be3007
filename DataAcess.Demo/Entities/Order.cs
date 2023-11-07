@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAcess.Demo.Entities
 {
-    public class OrderDetail
+    public class Order
     {
         public int Id { get; set; }
-        public string OrderID { get; set; } 
-        public int ProductId { get; set; }
+        public long TotalAmount { get; set; }
     }
 }
