@@ -14,6 +14,8 @@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/js.cookie.js"></script>
+    <script src="~/Scripts/Cart/StoreCart.js"></script>
 </head>
 <body class="sidebar-mini" style="height: auto;">
     <div class="wrapper">
@@ -199,8 +201,9 @@
             </div>
             <!-- /.sidebar -->
         </aside>
-        @RenderBody()
-
+        <div class="content-wrapper" style="padding-left: 25px">
+            @RenderBody()
+        </div>
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.2.0

@@ -4,7 +4,8 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Actin</th>
+            <th>Cart</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -16,6 +17,13 @@
                 <tr id="trProduct_@item.prductID">
                     <td>@item.prductID</td>
                     <td>@item.prductName</td>
+                    <td>
+                        <a data-productid="@item.prductID"
+                           data-productname="@item.prductName"
+                           data-price="@item.donGia" onclick="AddItemToCart(this)">
+                            Add to Cart
+                        </a>
+                    </td>
                     <td><a onclick="Product_Delete(@item.prductID)">Xóa</a></td>
                 </tr>
 
@@ -24,6 +32,10 @@
     </tbody>
 </table>
 <script>
+    $(document).ready(function () {
+
+
+    });
     function Product_Delete(id) {
 
         var result = confirm("Bạn có chắc chắn muốn xóa không?");

@@ -20,6 +20,12 @@ namespace WebDemoMVC
              );
 
             routes.MapRoute(
+              name: Guid.NewGuid().ToString(),
+              url: "gio-hang",
+              defaults: new { controller = "ShoppingCart", action = "Index" }
+          );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

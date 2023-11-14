@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<WebDemoMVC.Models.ShoppingCart>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th style="width:10%">Quantity</th>
+            <th>TotalAmount</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                var totalAmount = item.Price * item.Quantity;
+                <tr id="trProduct_@item.ProductId">
+                    <td>@item.ProductId</td>
+                    <td>@item.ProductName</td>
+                    <td>@string.Format("{0:##,#}", item.Price) VND</td>
+                    <td>
+                        <input type="number" id="txtQuantity" value="@item.Quantity" class="form-control"
+                               data-productid="@item.ProductId"
+                               data-productname="@item.ProductImage"
+                               data-price="@item.Price"
+                               data-quantity="@item.Quantity"
+                               onchange="UpdateItemToCart(this)" />
+                    </td>
+                    <td>
+                        @string.Format("{0:##,#}", totalAmount) VND
+                    </td>
+                    <td>
+                        <a data-productid="@item.ProductId"
+                           data-productname="@item.ProductImage"
+                           data-price="@item.Price"
+                           data-quantity="@item.Quantity" onclick="RemoveItemFromCart(this)">Xóa</a>
+                    </td>
+                </tr>
+
+            }
+        }
+    </tbody>
+</table>
+
+<div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email" style="width:50%">
+</div>
+<div class="form-group">
+    <label for="pwd">Họ tên:</label>
+    <input type="text" class="form-control" id="pwd" style="width:50%">
+</div>
+
+<button type="button" class="btn btn-success">Đặt hàng</button>
+<script>
+    $(document).ready(function () {
+
+        $("#txtQuantity").change(function () {
+
+        });
+    });
+</script>
