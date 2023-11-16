@@ -167,6 +167,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountLogin.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\ProductListRequestData.cs" />
     <Compile Include="Models\ProductModels.cs" />
     <Compile Include="Models\ReturnData.cs" />

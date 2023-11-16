@@ -53,19 +53,52 @@
 
 <div class="form-group">
     <label for="email">Email address:</label>
-    <input type="email" class="form-control" id="email" style="width:50%">
+    <input type="email" class="form-control" id="txtEmail" style="width:50%">
 </div>
 <div class="form-group">
     <label for="pwd">Họ tên:</label>
-    <input type="text" class="form-control" id="pwd" style="width:50%">
+    <input type="text" class="form-control" id="txtFullName" style="width:50%">
+</div>
+<div class="form-group">
+    <label for="pwd">Số điện thoại:</label>
+    <input type="text" class="form-control" id="txtPhoneNumber" style="width:50%">
 </div>
 
-<button type="button" class="btn btn-success">Đặt hàng</button>
+<div class="form-group">
+    <label for="pwd">Địa chỉ:</label>
+    <input type="text" class="form-control" id="txtAddress" style="width:50%">
+</div>
+
+<button type="button" class="btn btn-success" id="btnCheckOut">Đặt hàng</button>
 <script>
     $(document).ready(function () {
 
-        $("#txtQuantity").change(function () {
-
+        $("#btnCheckOut").click(function () {
+            CheckOut();
         });
+
+        function CheckOut() {
+            var param = {
+                CustomerName: $("#txtFullName").val(),
+                CustomerEmail: $("#txtEmail").val(),
+                CustomerPhoneNumber: $("#txtPhoneNumber").val(),
+                CustomerAddress: $("#txtAddress").val(),
+            };
+            $.ajax({
+                type: 'POST',
+                url: "/ShoppingCart/CheckOut",
+                data: param,
+                dataType: "json",
+                success: function (data) {
+                    return data.ResponseCode;
+                },
+                error: function (data) {
+                    document.cookie = 'ShoppingCart' + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+                    alert(data.Description);
+
+                }
+            });
+        }
+
     });
 </script>

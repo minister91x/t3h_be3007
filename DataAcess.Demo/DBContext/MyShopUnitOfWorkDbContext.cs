@@ -18,5 +18,6 @@ namespace DataAcess.Demo.DBContext
         public DbSet<Account>? user { get; set; }
         public DbSet<Function> function { get; set; }
         public DbSet<UserFuntion> userfunction { get; set; }
+        public DbSet<Customer> customer { get; set; }
     }
 }

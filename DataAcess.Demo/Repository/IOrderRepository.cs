@@ -11,5 +11,7 @@ namespace DataAcess.Demo.Repository
     {
         Task<int> OrderInsert(Order order);
         Task<int> OrderDetailInsert(OrderDetail orderDetail);
+
+        Task<int> Customer_Insert(Customer customer);
     }
 }
